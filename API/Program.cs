@@ -1,5 +1,8 @@
 using API.Data;
+using API.Errors;
 using API.Interfaces;
+using API.Meddleware;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -21,11 +24,32 @@ builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepositor
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 // builder.Configuration.AddEnvironmentVariables();
 
+builder.Services.Configure<ApiBehaviorOptions>(options =>
+{
+ options.InvalidModelStateResponseFactory = actionContext =>
+ {
+  var errors = actionContext.ModelState
+    .Where(e => e.Value.Errors.Count > 0)
+    .SelectMany(x => x.Value.Errors)
+    .Select(x => x.ErrorMessage).ToArray();
+
+  var errorResponse = new ApiValidationErrorResponse
+  {
+   Errors = errors
+  };
+  return new BadRequestObjectResult(errorResponse);
+ };
+});
+
 
 
 var app = builder.Build();
 
+app.UseStatusCodePagesWithReExecute("/errors/{0}");
+
 // Configure the HTTP request pipeline.
+
+app.UseMiddleware<ExceptionMiddleware>();
 if (app.Environment.IsDevelopment())
 {
  app.UseSwagger();
