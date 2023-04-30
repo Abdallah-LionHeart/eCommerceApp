@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
 // !Angular Material
+import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 
 
@@ -12,12 +13,14 @@ import { MatIconModule } from '@angular/material/icon';
     CommonModule,
 
     // !Angular Material
-    MatIconModule
+    MatIconModule,
+    MatDividerModule,
   ],
   exports: [
 
     // !Angular Material
     MatIconModule,
+    MatDividerModule,
 
   ]
 })

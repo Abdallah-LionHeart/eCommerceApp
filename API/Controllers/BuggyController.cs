@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
- //  [Route("[controller]")]
  public class BuggyController : BaseApiController
  {
   private readonly StoreContext _context;
@@ -26,12 +25,12 @@ namespace API.Controllers
   public ActionResult<string> GetServerError()
   {
    var productIsExsists = _context.Products.Find(-1);
-   if (productIsExsists == null)
-   {
-    return NotFound(new ApiResponse(404, "Proudect is not exsist"));
-   }
+   // if (productIsExsists == null)
+   // {
+   //  return NotFound(new ApiResponse(404, "Proudect is not exsist"));
+   // }
    var response = productIsExsists.ToString();
-   return response;
+   return Ok();
   }
 
   [HttpGet("badrequest")]

@@ -1,18 +1,26 @@
 [
   {
     "Id": 1,
-    "Name": "Boards"
+    "Name": "Laptop",
+    "ProcessorType": "i7",
+    "MemorySize": "16GB"
   },
   {
     "Id": 2,
-    "Name": "Hats"
+    "Name": "MatBook",
+    "ProcessorType": "i7",
+    "MemorySize": "16GB"
   },
   {
     "Id": 3,
-    "Name": "Boots"
+    "Name": "NoteBook",
+    "ProcessorType": "i7",
+    "MemorySize": "16GB"
   },
   {
     "Id": 4,
-    "Name": "Gloves"
+    "Name": "ZenBook",
+    "ProcessorType": "i7",
+    "MemorySize": "16GB"
   }
 ]

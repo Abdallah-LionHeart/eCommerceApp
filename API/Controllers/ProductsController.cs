@@ -35,13 +35,13 @@ namespace API.Controllers
    var totalItems = await _productsRepository.CountAsync(countspec);
    var products = await _productsRepository.ListAsync(spec);
 
-   var data = _mapper.Map<IReadOnlyList<ProductToReturnDto>>(products);
-   return Ok(new Pagination<ProductToReturnDto>(productParams.PageIndex, productParams.PageSize, totalItems, data));
+   // var data = _mapper.Map<IReadOnlyList<ProductToReturnDto>>(products);
+   return Ok(new Pagination<ProductToReturnDto>(productParams.PageIndex, productParams.PageSize, totalItems, _mapper.Map<IReadOnlyList<ProductToReturnDto>>(products)));
   }
 
   [HttpGet("{id}")]
-  // [ProducesResponseType(StatusCodes.Status200OK)]
-  // [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status404NotFound)]
+  [ProducesResponseType(StatusCodes.Status200OK)]
+  [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status404NotFound)]
   public async Task<ActionResult<ProductToReturnDto>> GetProduct(int id)
   {
    var spec = new ProductsWithTypesAndBrandsSpecification(id);

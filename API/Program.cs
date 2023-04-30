@@ -41,14 +41,14 @@ builder.Services.Configure<ApiBehaviorOptions>(options =>
  };
 });
 
-builder.Services.AddCors(opt =>
-{
- opt.AddPolicy("CorsPolicy", policy =>
- {
-  policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200");
- });
-});
-
+// builder.Services.AddCors(opt =>
+// {
+//  opt.AddPolicy("CorsPolicy", policy =>
+//  {
+//   policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200");
+//  });
+// });
+builder.Services.AddCors();
 
 var app = builder.Build();
 
@@ -62,10 +62,11 @@ if (app.Environment.IsDevelopment())
  app.UseSwagger();
  app.UseSwaggerUI();
 }
-
+app.UseCors(builder => builder.AllowAnyHeader().AllowAnyMethod()
+.AllowCredentials().WithOrigins("https://localhost:4200"));
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-app.UseCors("CorsPolicy");
+// app.UseCors("CorsPolicy");
 
 app.UseAuthorization();
 

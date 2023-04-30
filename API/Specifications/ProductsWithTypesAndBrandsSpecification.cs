@@ -5,7 +5,7 @@ namespace API.Specifications
  public class ProductsWithTypesAndBrandsSpecification : BaseSpecification<Product>
  {
   public ProductsWithTypesAndBrandsSpecification(ProductSpecParams productParams) : base(x =>
-   (!string.IsNullOrEmpty(productParams.Search) || x.Name.ToLower().Contains(productParams.Search)) &&
+   (string.IsNullOrEmpty(productParams.Search) || x.Name.ToLower().Contains(productParams.Search)) &&
    (!productParams.BrandId.HasValue || x.ProductBrandId == productParams.BrandId) &&
    (!productParams.TypeId.HasValue || x.ProductTypeId == productParams.TypeId)
   )
