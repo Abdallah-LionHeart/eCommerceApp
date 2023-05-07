@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './appModule/shared.module';
@@ -12,7 +13,8 @@ import { ShopComponent } from './appShop/shop/shop.component';
 import { FooterComponent } from './appUi/footer/footer.component';
 import { HeaderComponent } from './appUi/header/header.component';
 import { HomeComponent } from './appUi/home/home.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { PagerComponent } from './appUiParts/pager/pager.component';
+import { PagingHeaderComponent } from './appUiParts/paging-header/paging-header.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     FooterComponent,
     HeaderComponent,
     HomeComponent,
+    PagingHeaderComponent,
+    PagerComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,7 +37,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     FontAwesomeModule,
   ],
   exports: [
-    HttpClientModule
+    HttpClientModule,
+    PagingHeaderComponent,
+    PagerComponent,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

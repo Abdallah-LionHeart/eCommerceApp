@@ -1,2 +1,5 @@
 {
+ "html.format.wrapAttributes": "preserve",
+ "prettier.proseWrap": "never",
+ "diffEditor.wordWrap": "off"
 }
