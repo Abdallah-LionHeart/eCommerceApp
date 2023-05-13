@@ -1,7 +1,6 @@
 using API.DTOS;
 using API.Entity;
 using AutoMapper;
-using Microsoft.Extensions.Configuration;
 
 namespace API.Helpers
 {
@@ -17,9 +16,9 @@ namespace API.Helpers
 
   public string Resolve(Product source, ProductToReturnDto destination, string destMember, ResolutionContext context)
   {
-   if (!string.IsNullOrEmpty(source.PictureUrl))
+   if (!string.IsNullOrEmpty(source.ImageUrl))
    {
-    return _config["ApiUrl"] + source.PictureUrl;
+    return _config["ApiUrl"] + source.ImageUrl;
    }
    return null;
   }

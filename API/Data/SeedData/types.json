@@ -1,26 +1,18 @@
 [
   {
     "Id": 1,
-    "Name": "Laptop",
-    "ProcessorType": "i7",
-    "MemorySize": "16GB"
+    "Name": "Laptop"
   },
   {
     "Id": 2,
-    "Name": "MatBook",
-    "ProcessorType": "i7",
-    "MemorySize": "16GB"
+    "Name": "MatBook"
   },
   {
     "Id": 3,
-    "Name": "NoteBook",
-    "ProcessorType": "i7",
-    "MemorySize": "16GB"
+    "Name": "NoteBook"
   },
   {
     "Id": 4,
-    "Name": "ZenBook",
-    "ProcessorType": "i7",
-    "MemorySize": "16GB"
+    "Name": "ZenBook"
   }
 ]

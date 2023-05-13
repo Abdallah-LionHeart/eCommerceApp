@@ -58,7 +58,7 @@ export class ShopComponent implements OnInit {
   }
   getTypes() {
     this.shopservice.getTypes().subscribe({
-      next: response => this.types = [{ id: 0, name: 'All', processorType: 'All', memorySize: 'All' }, ...response],
+      next: response => this.types = [{ id: 0, name: 'All' }, ...response],
       error: error => console.log(error)
     })
   }

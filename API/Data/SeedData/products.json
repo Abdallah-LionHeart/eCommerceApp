@@ -1,169 +1,177 @@
 [
   {
     "Name": "Microsoft SurfaceBook",
-    "Description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
+    "Specification": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
     "Price": 200,
-    "PictureUrl": "images/products/Microsoft1.png",
+    "ImageUrl": "images/products/Microsoft1.png",
     "ProductTypeId": 1,
     "ProductBrandId": 6
   },
   {
     "Name": "Microsoft Surface",
-    "Description": "Microsoft Surface Laptop Go - 12.4 Touchscreen",
+    "Specification": "Microsoft Surface Laptop Go - 12.4 Touchscreen",
     "Price": 299.99,
-    "PictureUrl": "images/products/Microsoft2.jpg",
+    "ImageUrl": "images/products/Microsoft2.jpg",
     "ProductTypeId": 3,
     "ProductBrandId": 6
   },
   {
     "Name": "Microsoft Surface Pro 8 Bundle",
-    "Description": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci.",
+    "Specification": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci.",
     "Price": 600,
-    "PictureUrl": "images/products/Microsoft3.jpg",
+    "ImageUrl": "images/products/Microsoft3.jpg",
     "ProductTypeId": 1,
     "ProductBrandId": 6
   },
   {
     "Name": "Dell",
-    "Description": "Dell Inspiron 15.6 Touchscreen Laptop",
+    "Specification": "Dell Inspiron 15.6 Touchscreen Laptop",
     "Price": 850,
-    "PictureUrl": "images/products/Dell1.jpg",
+    "ImageUrl": "images/products/Dell1.jpg",
     "ProductTypeId": 1,
     "ProductBrandId": 3
   },
   {
     "Name": "Dell",
-    "Description": "Dell Newest Inspiron 15 3511 Laptop, 15.6 FHD Touchscreen",
+    "Specification": "Dell Newest Inspiron 15 3511 Laptop, 15.6 FHD Touchscreen",
     "Price": 800,
-    "PictureUrl": "images/products/Dell2.jpg",
+    "ImageUrl": "images/products/Dell2.jpg",
     "ProductTypeId": 4,
     "ProductBrandId": 3
   },
   {
     "Name": "Dell",
-    "Description": "Dell Newest Inspiron 15 3511 Laptop, 15.6 FHD Touchscreen",
+    "Specification": "Dell Newest Inspiron 15 3511 Laptop, 15.6 FHD Touchscreen",
     "Price": 750,
-    "PictureUrl": "images/products/Dell3.jpg",
+    "ImageUrl": "images/products/Dell3.jpg",
     "ProductTypeId": 3,
     "ProductBrandId": 3
   },
   {
-    "Name": "Asus Zenbook",
-    "Description": " ASUS 15.6 ASUS 15.6 Zenbook UX582ZM Touchscreen Laptop",
+    "Name": "Asus Zenbook Pro 14",
+    "Specification": " ASUS 15.6 ASUS 15.6 Zenbook UX582ZM Touchscreen Laptop",
     "Price": 900,
-    "PictureUrl": "images/products/ASUS1.jpg",
+    "ImageUrl": [
+      "images/products/ASUS Zenbook Pro 14 1.jpg",
+      "images/products/ASUS Zenbook Pro 14 2.jpg",
+      "images/products/ASUS Zenbook Pro 14 3.jpg",
+      "images/products/ASUS Zenbook Pro 14 4.jpg",
+      "images/products/ASUS Zenbook Pro 14 5.jpg",
+      "images/products/ASUS Zenbook Pro 14 6.jpg",
+      "images/products/ASUS Zenbook Pro 14 7.jpg"
+    ],
     "ProductTypeId": 1,
     "ProductBrandId": 1
   },
   {
     "Name": "ASUS",
-    "Description": "ASUS 14 C433TA 2-in-1 Touchscreen Chromebook Laptop",
+    "Specification": "ASUS zenbook pro 14 C433TA 2-in-1 Touchscreen",
     "Price": 500.99,
-    "PictureUrl": "images/products/ASUS2.jpg",
+    "ImageUrl": "images/products/ASUS2.jpg",
     "ProductTypeId": 4,
     "ProductBrandId": 1
   },
   {
     "Name": "Asus",
-    "Description": "ASUS Chromebook CX1, 15.6 Full HD NanoEdge Display",
+    "Specification": "ASUS Chromebook CX1, 15.6 Full HD NanoEdge Display",
     "Price": 380.99,
-    "PictureUrl": "images/products/ASUS3.jpg",
+    "ImageUrl": "images/products/ASUS3.jpg",
     "ProductTypeId": 3,
     "ProductBrandId": 1
   },
   {
     "Name": "Lenovo",
-    "Description": "Lenovo Flex 5 14 2-in-1 Touchscreen Laptop",
+    "Specification": "Lenovo Flex 5 14 2-in-1 Touchscreen Laptop",
     "Price": 250,
-    "PictureUrl": "images/products/Lenovo1.png",
+    "ImageUrl": "images/products/Lenovo1.png",
     "ProductTypeId": 1,
     "ProductBrandId": 7
   },
   {
     "Name": "Lenovo",
-    "Description": "Lenovo IdeaPad 3 15.6  Touchscreen Laptop",
+    "Specification": "Lenovo IdeaPad 3 15.6  Touchscreen Laptop",
     "Price": 700,
-    "PictureUrl": "images/products/Lenovo2.jpg",
+    "ImageUrl": "images/products/Lenovo2.jpg",
     "ProductTypeId": 1,
     "ProductBrandId": 7
   },
   {
     "Name": "Lenovo",
-    "Description": "Lenovo IdeaPad 1 15.6 Laptop 2023 Model",
+    "Specification": "Lenovo IdeaPad 1 15.6 Laptop 2023 Model",
     "Price": 1000,
-    "PictureUrl": "images/products/lenovo3.jpg",
+    "ImageUrl": "images/products/lenovo3.jpg",
     "ProductTypeId": 4,
     "ProductBrandId": 7
   },
   {
     "Name": "Apple MacBook",
-    "Description": "MacBook Pro 13.3 Apple M2 Chip 8-core CPU",
+    "Specification": "MacBook Pro 13.3 Apple M2 Chip 8-core CPU",
     "Price": 1140,
-    "PictureUrl": "images/products/MacBook1.jpg",
+    "ImageUrl": "images/products/MacBook1.jpg",
     "ProductTypeId": 2,
     "ProductBrandId": 2
   },
   {
     "Name": "Apple MacBook",
-    "Description": "MacBook Pro (14-inch) - Apple M2 Max chip with 12 core CPU",
+    "Specification": "MacBook Pro (14-inch) - Apple M2 Max chip with 12 core CPU",
     "Price": 999.99,
-    "PictureUrl": "images/products/MacBook2.jpg",
+    "ImageUrl": "images/products/MacBook2.jpg",
     "ProductTypeId": 4,
     "ProductBrandId": 2
   },
   {
     "Name": "Apple MacBook",
-    "Description": "Apple MacBook Air 13-inch Retina display",
+    "Specification": "Apple MacBook Air 13-inch Retina display",
     "Price": 1189.99,
-    "PictureUrl": "images/products/MacBook3.jpg",
+    "ImageUrl": "images/products/MacBook3.jpg",
     "ProductTypeId": 3,
     "ProductBrandId": 2
   },
   {
     "Name": "HP",
-    "Description": "HP 2023 Newest 14 Laptop for Productivity and Entertainment,14",
+    "Specification": "HP 2023 Newest 14 Laptop for Productivity and Entertainment,14",
     "Price": 400,
-    "PictureUrl": "images/products/Hp1.jpg",
+    "ImageUrl": "images/products/Hp1.jpg",
     "ProductTypeId": 2,
     "ProductBrandId": 5
   },
   {
     "Name": "HP",
-    "Description": "HP 2022 15.6 HD BrightView Laptop, Intel Pentium Silver",
+    "Specification": "HP 2022 15.6 HD BrightView Laptop, Intel Pentium Silver",
     "Price": 500,
-    "PictureUrl": "images/products/Hp2.jpg",
+    "ImageUrl": "images/products/Hp2.jpg",
     "ProductTypeId": 2,
     "ProductBrandId": 5
   },
   {
     "Name": "HP",
-    "Description": "HP Newest 14 HD Laptop Windows 11",
+    "Specification": "HP Newest 14 HD Laptop Windows 11",
     "Price": 950,
-    "PictureUrl": "images/products/hp3.jpg",
+    "ImageUrl": "images/products/hp3.jpg",
     "ProductTypeId": 3,
     "ProductBrandId": 5
   },
   {
     "Name": "Huawei",
-    "Description": "Huawei MateBook X Pro Signature Edition Thin & Light Laptop",
+    "Specification": "Huawei MateBook X Pro Signature Edition Thin & Light Laptop",
     "Price": 950,
-    "PictureUrl": "images/products/Huawei.jpg",
+    "ImageUrl": "images/products/Huawei.jpg",
     "ProductTypeId": 3,
     "ProductBrandId": 4
   },
   {
     "Name": "Huawei",
-    "Description": "MateBook X Pro Greater Versatility, More Possibilities",
+    "Specification": "MateBook X Pro Greater Versatility, More Possibilities",
     "Price": 950,
-    "PictureUrl": "images/products/Huawei2.jpg",
+    "ImageUrl": "images/products/Huawei2.jpg",
     "ProductTypeId": 3,
     "ProductBrandId": 4
   },
   {
     "Name": "Huawei",
-    "Description": "MateBook 14 Light, Speed, Power",
+    "Specification": "MateBook 14 Light, Speed, Power",
     "Price": 950,
-    "PictureUrl": "images/products/Huawei3.jpg",
+    "ImageUrl": "images/products/Huawei3.jpg",
     "ProductTypeId": 3,
     "ProductBrandId": 4
   }

@@ -1,1 +1,13 @@
-
+.logo {
+  max-height: 78px;
+  cursor: pointer;
+}
+.navbar {
+  max-height: 50px;
+}
+a {
+  text-decoration: none;
+  &.active {
+    color: orange;
+  }
+}
