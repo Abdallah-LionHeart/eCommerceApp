@@ -35,7 +35,6 @@ namespace API.Controllers
    var totalItems = await _productsRepository.CountAsync(countspec);
    var products = await _productsRepository.ListAsync(spec);
 
-   // var data = _mapper.Map<IReadOnlyList<ProductToReturnDto>>(products);
    return Ok(new Pagination<ProductToReturnDto>(productParams.PageIndex, productParams.PageSize, totalItems, _mapper.Map<IReadOnlyList<ProductToReturnDto>>(products)));
   }
 
@@ -54,26 +53,6 @@ namespace API.Controllers
 
    return _mapper.Map<Product, ProductToReturnDto>(product);
   }
-
-
-  // [HttpGet("name/{name}")]
-  // public Task<ActionResult<Pagination<ProductToReturnDto>>> GetProduct(string name)
-  // {
-  // !using generic repository
-  // return await _productsRepository.GetProductByNameAsync(name);
-
-  // !using specification
-  // var spec = new ProductsWithTypesAndBrandsSpecification(name);
-  // var countspec = new ProductWithFiltersForCountSpecification(name);
-  // var totalItems = await _productsRepository.CountAsync(countspec);
-  // var products = await _productsRepository.ListAsync(spec);
-
-  //  // // var data = _mapper.Map<IReadOnlyList<ProductToReturnDto>>(products);
-  // return Ok(new Pagination<ProductToReturnDto>(1, 1, totalItems, _mapper.Map<IReadOnlyList<ProductToReturnDto>>(products)));
-  // }
-
-
-
 
 
 
