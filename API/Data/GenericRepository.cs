@@ -18,6 +18,10 @@ namespace API.Data
    return await _context.Set<T>().FindAsync(id);
   }
 
+  // public Task<T> GetByNameAsync(string name)
+  // {
+  //  return _context.Set<T>().FirstOrDefaultAsync(x => x.Name == name);
+  // }
 
   public async Task<IReadOnlyList<T>> ListAllAsync()
   {
@@ -44,5 +48,9 @@ namespace API.Data
    return SpecificationEvaluator<T>.GetQuery(_context.Set<T>().AsQueryable(), spec);
   }
 
+  public Task<T> GetByNameAsync(string name)
+  {
+   throw new NotImplementedException();
+  }
  }
 }

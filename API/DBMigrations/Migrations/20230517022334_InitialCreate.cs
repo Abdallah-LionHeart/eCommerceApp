@@ -29,9 +29,7 @@ namespace API.DBMigrations.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Name = table.Column<string>(type: "TEXT", nullable: true),
-                    ProcessorType = table.Column<string>(type: "TEXT", nullable: true),
-                    MemorySize = table.Column<string>(type: "TEXT", nullable: true)
+                    Name = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -46,8 +44,13 @@ namespace API.DBMigrations.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false),
                     Specification = table.Column<string>(type: "TEXT", nullable: false),
+                    Generation = table.Column<string>(type: "TEXT", nullable: false),
                     Price = table.Column<double>(type: "decimal(18,2)", nullable: false),
-                    ImageUrl = table.Column<string>(type: "TEXT", nullable: false),
+                    Condition = table.Column<string>(type: "TEXT", nullable: false),
+                    TouchScreen = table.Column<bool>(type: "INTEGER", nullable: false, defaultValue: false),
+                    Quantity = table.Column<int>(type: "INTEGER", nullable: false),
+                    StorageSize = table.Column<string>(type: "TEXT", nullable: false),
+                    RamSize = table.Column<string>(type: "TEXT", nullable: false),
                     ProductTypeId = table.Column<int>(type: "INTEGER", nullable: false),
                     ProductBrandId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
@@ -68,6 +71,33 @@ namespace API.DBMigrations.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Photos",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Url = table.Column<string>(type: "TEXT", nullable: true),
+                    IsMain = table.Column<bool>(type: "INTEGER", nullable: false),
+                    PublicId = table.Column<string>(type: "TEXT", nullable: true),
+                    ProductId = table.Column<int>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Photos", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Photos_Products_ProductId",
+                        column: x => x.ProductId,
+                        principalTable: "Products",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Photos_ProductId",
+                table: "Photos",
+                column: "ProductId");
+
             migrationBuilder.CreateIndex(
                 name: "IX_Products_ProductBrandId",
                 table: "Products",
@@ -82,6 +112,9 @@ namespace API.DBMigrations.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Photos");
+
             migrationBuilder.DropTable(
                 name: "Products");
 

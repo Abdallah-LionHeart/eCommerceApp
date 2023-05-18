@@ -16,9 +16,11 @@ namespace API.Helpers
 
   public string Resolve(Product source, ProductToReturnDto destination, string destMember, ResolutionContext context)
   {
-   if (!string.IsNullOrEmpty(source.ImageUrl))
+   // if (!string.IsNullOrEmpty(source.Photos))
+   var photo = source.Photos.FirstOrDefault(x => x.IsMain).Url;
+   if (photo != null)
    {
-    return _config["ApiUrl"] + source.ImageUrl;
+    return _config["ApiUrl"] + source.Photos;
    }
    return null;
   }

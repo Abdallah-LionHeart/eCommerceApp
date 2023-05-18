@@ -38,4 +38,15 @@ export class ShopService {
   getTypes() {
     return this.http.get<Type[]>(this.baseUrl + 'products/types');
   }
+
+  // getHttpOptions() {
+  //   const productString = localStorage.getItem('product');
+  //   if (!productString) return;
+  //   const product = JSON.parse(productString);
+  //   return {
+  //     headers: new HttpHeaders({
+  //       Authorization: 'Bearer ' + product.token
+  //     })
+  //   }
+  // }
 }

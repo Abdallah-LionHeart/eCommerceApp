@@ -1,6 +1,6 @@
 <div class="row" *ngIf="product">
  <div class="col-6">
-  <img src="{{product.imageUrl}}" alt="{{product.name}}" class="w-100">
+  <img src="{{product.photoUrl}}" alt="{{product.name}}" class="w-100">
  </div>
  <div class="col-6 mt-5">
   <h2>{{product.name}}</h2>
@@ -14,6 +14,18 @@
   <div class="row mt-4">
    <h4>Specification</h4>
    <p>{{product.specification}}</p>
+   <h4>Generation</h4>
+   <p>{{product.generation}}</p>
+   <h4>Condiction</h4>
+   <p>{{product.condition}}</p>
+   <h4>Ram Size</h4>
+   <p>{{product.ramSize}}</p>
+   <h4>Storage Size</h4>
+   <p>{{product.storageSize}}</p>
+   <h4>Touch Screen</h4>
+   <p>{{product.touchScreen}}</p>
+   <h4>Quantity</h4>
+   <p>{{product.quantity}}</p>
   </div>
  </div>
 </div>

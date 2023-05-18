@@ -17,13 +17,24 @@ namespace API.Data
    return await _context.Products
    .Include(p => p.ProductType)
    .Include(p => p.ProductBrand)
+   .Include(p => p.Photos)
    .FirstOrDefaultAsync(p => p.Id == id);
   }
+
+  // public async Task<Product> GetProductByNameAsync(string name)
+  // {
+  //  return await _context.Products
+  //  .Include(p => p.ProductType)
+  //  .Include(p => p.ProductBrand)
+  //  .SingleOrDefaultAsync(p => p.Name == name);
+  // }
+
   public async Task<IReadOnlyList<Product>> GetProductsAsync()
   {
    return await _context.Products
    .Include(p => p.ProductType)
    .Include(p => p.ProductBrand)
+   .Include(p => p.Photos)
    .ToListAsync();
   }
 

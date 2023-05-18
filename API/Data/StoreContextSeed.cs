@@ -10,6 +10,7 @@ namespace API.Data
    if (!context.ProductBrands.Any())
    {
     var brandsData = File.ReadAllText("Data/SeedData/brands.json");
+    var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
     var brands = JsonSerializer.Deserialize<List<ProductBrand>>(brandsData);
     context.ProductBrands.AddRange(brands);
    }
@@ -17,6 +18,7 @@ namespace API.Data
    if (!context.ProductTypes.Any())
    {
     var typesData = File.ReadAllText("Data/SeedData/types.json");
+    var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
     var types = JsonSerializer.Deserialize<List<ProductType>>(typesData);
     context.ProductTypes.AddRange(types);
    }
@@ -25,6 +27,7 @@ namespace API.Data
    if (!context.Products.Any())
    {
     var productsData = File.ReadAllText("Data/SeedData/products.json");
+    var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
     var products = JsonSerializer.Deserialize<List<Product>>(productsData);
     context.Products.AddRange(products);
    }

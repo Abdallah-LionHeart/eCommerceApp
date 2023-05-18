@@ -18,7 +18,6 @@ import { HomeComponent } from './appUi/home/home.component';
 import { NavBarComponent } from './appUiParts/nav-bar/nav-bar.component';
 import { PagerComponent } from './appUiParts/pager/pager.component';
 import { PagingHeaderComponent } from './appUiParts/paging-header/paging-header.component';
-import { NgxUsefulSwiperModule } from 'ngx-useful-swiper';
 
 
 @NgModule({

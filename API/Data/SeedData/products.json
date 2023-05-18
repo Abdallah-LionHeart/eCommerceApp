@@ -1,178 +1,401 @@
 [
   {
     "Name": "Microsoft SurfaceBook",
-    "Specification": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
+    "Specification": "",
     "Price": 200,
-    "ImageUrl": "images/products/Microsoft1.png",
+    "Generation": "12th Generation",
+    "TouchScreen": false,
+    "Condition": "New",
+    "Quantity": 3,
+    "StorageSize": "512 SSD",
+    "RamSize": "32 GB RAM",
     "ProductTypeId": 1,
-    "ProductBrandId": 6
+    "ProductBrandId": 6,
+    "Photos": [
+      {
+        "Url": "images/products/Microsoft1.png",
+        "IsMain": true
+      }
+    ]
   },
   {
     "Name": "Microsoft Surface",
     "Specification": "Microsoft Surface Laptop Go - 12.4 Touchscreen",
     "Price": 299.99,
-    "ImageUrl": "images/products/Microsoft2.jpg",
+    "Generation": "12th Generation",
+    "TouchScreen": false,
+    "Condition": "New",
+    "Quantity": 3,
+    "StorageSize": "512 SSD",
+    "RamSize": "32 GB RAM",
     "ProductTypeId": 3,
-    "ProductBrandId": 6
+    "ProductBrandId": 6,
+    "Photos": [
+      {
+        "Url": "images/products/Microsoft2.jpg",
+        "IsMain": true
+      }
+    ]
   },
   {
-    "Name": "Microsoft Surface Pro 8 Bundle",
-    "Specification": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci.",
+    "Name": "Microsoft Surface Pro 8",
+    "Specification": "Surface Cor i7",
     "Price": 600,
-    "ImageUrl": "images/products/Microsoft3.jpg",
+    "Generation": "12th Generation",
+    "TouchScreen": false,
+    "Condition": "New",
+    "Quantity": 3,
+    "StorageSize": "1 TB SSD",
+    "RamSize": "32 GB RAM",
     "ProductTypeId": 1,
-    "ProductBrandId": 6
+    "ProductBrandId": 6,
+    "Photos": [
+      {
+        "Url": "images/products/Microsoft3.jpg",
+        "IsMain": true
+      }
+    ]
   },
   {
     "Name": "Dell",
     "Specification": "Dell Inspiron 15.6 Touchscreen Laptop",
     "Price": 850,
-    "ImageUrl": "images/products/Dell1.jpg",
+    "Generation": "12th Generation",
+    "TouchScreen": false,
+    "Condition": "New",
+    "Quantity": 2,
+    "StorageSize": "512 SSD",
+    "RamSize": "16 GB RAM",
     "ProductTypeId": 1,
-    "ProductBrandId": 3
+    "ProductBrandId": 3,
+    "Photos": [
+      {
+        "Url": "images/products/Dell1.jpg",
+        "IsMain": true
+      }
+    ]
   },
   {
     "Name": "Dell",
-    "Specification": "Dell Newest Inspiron 15 3511 Laptop, 15.6 FHD Touchscreen",
+    "Specification": "Dell Laptop Core i7",
     "Price": 800,
-    "ImageUrl": "images/products/Dell2.jpg",
+    "Generation": "12th Generation",
+    "TouchScreen": true,
+    "Condition": "New",
+    "Quantity": 3,
+    "StorageSize": "512 SSD",
+    "RamSize": "16 GB RAM",
     "ProductTypeId": 4,
-    "ProductBrandId": 3
+    "ProductBrandId": 3,
+    "Photos": [
+      {
+        "Url": "images/products/Dell2.jpg",
+        "IsMain": true
+      }
+    ]
   },
   {
     "Name": "Dell",
-    "Specification": "Dell Newest Inspiron 15 3511 Laptop, 15.6 FHD Touchscreen",
+    "Specification": "Dell Laptop Core i3",
     "Price": 750,
-    "ImageUrl": "images/products/Dell3.jpg",
+    "Generation": "13th Generation",
+    "TouchScreen": true,
+    "Condition": "New",
+    "Quantity": 6,
+    "StorageSize": "512 SSD",
+    "RamSize": "32 GB RAM",
     "ProductTypeId": 3,
-    "ProductBrandId": 3
+    "ProductBrandId": 3,
+    "Photos": [
+      {
+        "Url": "images/products/Dell3.jpg",
+        "IsMain": true
+      }
+    ]
   },
   {
     "Name": "Asus Zenbook Pro 14",
-    "Specification": " ASUS 15.6 ASUS 15.6 Zenbook UX582ZM Touchscreen Laptop",
+    "Specification": "ASUS 15.6 ASUS 15.6 Zenbook Core i9",
     "Price": 900,
-    "ImageUrl": [
-      "images/products/ASUS Zenbook Pro 14 1.jpg",
-      "images/products/ASUS Zenbook Pro 14 2.jpg",
-      "images/products/ASUS Zenbook Pro 14 3.jpg",
-      "images/products/ASUS Zenbook Pro 14 4.jpg",
-      "images/products/ASUS Zenbook Pro 14 5.jpg",
-      "images/products/ASUS Zenbook Pro 14 6.jpg",
-      "images/products/ASUS Zenbook Pro 14 7.jpg"
-    ],
+    "Generation": "13th Generation",
+    "TouchScreen": true,
+    "Condition": "New",
+    "Quantity": 2,
+    "StorageSize": "1 TB SSD",
+    "RamSize": "64 GB RAM",
     "ProductTypeId": 1,
-    "ProductBrandId": 1
+    "ProductBrandId": 1,
+    "Photos": [
+      {
+        "Url": "images/products/ASUS Zenbook Pro 14 1.jpg",
+        "IsMain": true
+      }
+    ]
   },
   {
     "Name": "ASUS",
-    "Specification": "ASUS zenbook pro 14 C433TA 2-in-1 Touchscreen",
+    "Specification": "ASUS zenbook pro 14 Core i7",
     "Price": 500.99,
-    "ImageUrl": "images/products/ASUS2.jpg",
+    "Generation": "12th Generation",
+    "TouchScreen": true,
+    "Condition": "New",
+    "Quantity": 1,
+    "StorageSize": "512 SSD",
+    "RamSize": "32 GB RAM",
     "ProductTypeId": 4,
-    "ProductBrandId": 1
+    "ProductBrandId": 1,
+    "Photos": [
+      {
+        "Url": "images/products/ASUS2.jpg",
+        "IsMain": true
+      }
+    ]
   },
   {
     "Name": "Asus",
-    "Specification": "ASUS Chromebook CX1, 15.6 Full HD NanoEdge Display",
+    "Specification": "ASUS Chromebook CX1 Core i9",
     "Price": 380.99,
-    "ImageUrl": "images/products/ASUS3.jpg",
+    "Generation": "12th Generation",
+    "TouchScreen": false,
+    "Condition": "New",
+    "Quantity": 3,
+    "StorageSize": "1 TB SSD",
+    "RamSize": "32 GB RAM",
     "ProductTypeId": 3,
-    "ProductBrandId": 1
+    "ProductBrandId": 1,
+    "Photos": [
+      {
+        "Url": "images/products/ASUS3.jpg",
+        "IsMain": true
+      }
+    ]
   },
   {
     "Name": "Lenovo",
     "Specification": "Lenovo Flex 5 14 2-in-1 Touchscreen Laptop",
     "Price": 250,
-    "ImageUrl": "images/products/Lenovo1.png",
+    "Generation": "12th Generation",
+    "TouchScreen": false,
+    "Condition": "New",
+    "Quantity": 3,
+    "StorageSize": "512 HHD",
+    "RamSize": "8 GB RAM",
     "ProductTypeId": 1,
-    "ProductBrandId": 7
+    "ProductBrandId": 7,
+    "Photos": [
+      {
+        "Url": "images/products/Lenovo1.png",
+        "IsMain": true
+      }
+    ]
   },
   {
     "Name": "Lenovo",
     "Specification": "Lenovo IdeaPad 3 15.6  Touchscreen Laptop",
     "Price": 700,
-    "ImageUrl": "images/products/Lenovo2.jpg",
+    "Generation": "12th Generation",
+    "TouchScreen": false,
+    "Condition": "New",
+    "Quantity": 3,
+    "StorageSize": "512 SSD",
+    "RamSize": "4 GB RAM",
     "ProductTypeId": 1,
-    "ProductBrandId": 7
+    "ProductBrandId": 7,
+    "Photos": [
+      {
+        "Url": "images/products/Lenovo2.jpg",
+        "IsMain": true
+      }
+    ]
   },
   {
     "Name": "Lenovo",
-    "Specification": "Lenovo IdeaPad 1 15.6 Laptop 2023 Model",
+    "Specification": "Lenovo IdeaPad 1 15.6 Core i3",
     "Price": 1000,
-    "ImageUrl": "images/products/lenovo3.jpg",
+    "Generation": "12th Generation",
+    "TouchScreen": false,
+    "Condition": "New",
+    "Quantity": 3,
+    "StorageSize": "512 SSD",
+    "RamSize": "32 GB RAM",
     "ProductTypeId": 4,
-    "ProductBrandId": 7
+    "ProductBrandId": 7,
+    "Photos": [
+      {
+        "Url": "images/products/lenovo3.jpg",
+        "IsMain": true
+      }
+    ]
   },
   {
     "Name": "Apple MacBook",
-    "Specification": "MacBook Pro 13.3 Apple M2 Chip 8-core CPU",
+    "Specification": "MacBook Pro 13.3 Apple",
     "Price": 1140,
-    "ImageUrl": "images/products/MacBook1.jpg",
+    "Generation": "12th Generation",
+    "TouchScreen": false,
+    "Condition": "New",
+    "Quantity": 3,
+    "StorageSize": "512 SSD M2 Chip",
+    "RamSize": "32 GB RAM",
     "ProductTypeId": 2,
-    "ProductBrandId": 2
+    "ProductBrandId": 2,
+    "Photos": [
+      {
+        "Url": "images/products/MacBook1.jpg",
+        "IsMain": true
+      }
+    ]
   },
   {
     "Name": "Apple MacBook",
-    "Specification": "MacBook Pro (14-inch) - Apple M2 Max chip with 12 core CPU",
+    "Specification": "Apple MacBook Pro ",
     "Price": 999.99,
-    "ImageUrl": "images/products/MacBook2.jpg",
+    "Generation": "12th Generation",
+    "TouchScreen": false,
+    "Condition": "New",
+    "Quantity": 3,
+    "StorageSize": "1 TB M2 Chip",
+    "RamSize": "32 GB RAM",
     "ProductTypeId": 4,
-    "ProductBrandId": 2
+    "ProductBrandId": 2,
+    "Photos": [
+      {
+        "Url": "images/products/MacBook2.jpg",
+        "IsMain": true
+      }
+    ]
   },
   {
     "Name": "Apple MacBook",
-    "Specification": "Apple MacBook Air 13-inch Retina display",
+    "Specification": "Apple MacBook Air",
     "Price": 1189.99,
-    "ImageUrl": "images/products/MacBook3.jpg",
+    "Generation": "12th Generation",
+    "TouchScreen": false,
+    "Condition": "New",
+    "Quantity": 3,
+    "StorageSize": "512 SSD",
+    "RamSize": "32 GB RAM",
     "ProductTypeId": 3,
-    "ProductBrandId": 2
+    "ProductBrandId": 2,
+    "Photos": [
+      {
+        "Url": "images/products/MacBook3.jpg",
+        "IsMain": true
+      }
+    ]
   },
   {
     "Name": "HP",
-    "Specification": "HP 2023 Newest 14 Laptop for Productivity and Entertainment,14",
+    "Specification": "HP Laptop core i5",
     "Price": 400,
-    "ImageUrl": "images/products/Hp1.jpg",
+    "Generation": "12th Generation",
+    "TouchScreen": false,
+    "Condition": "New",
+    "Quantity": 3,
+    "StorageSize": "512 SSD",
+    "RamSize": "32 GB RAM",
     "ProductTypeId": 2,
-    "ProductBrandId": 5
+    "ProductBrandId": 5,
+    "Photos": [
+      {
+        "Url": "images/products/Hp1.jpg",
+        "IsMain": true
+      }
+    ]
   },
   {
     "Name": "HP",
-    "Specification": "HP 2022 15.6 HD BrightView Laptop, Intel Pentium Silver",
+    "Specification": "HP Laptop Intel Pentium Silver",
     "Price": 500,
-    "ImageUrl": "images/products/Hp2.jpg",
+    "Generation": "12th Generation",
+    "TouchScreen": false,
+    "Condition": "Second Hand",
+    "Quantity": 3,
+    "StorageSize": "512 SSD",
+    "RamSize": "32 GB RAM",
     "ProductTypeId": 2,
-    "ProductBrandId": 5
+    "ProductBrandId": 5,
+    "Photos": [
+      {
+        "Url": "images/products/Hp2.jpg",
+        "IsMain": true
+      }
+    ]
   },
   {
     "Name": "HP",
-    "Specification": "HP Newest 14 HD Laptop Windows 11",
+    "Specification": "HP Laptop core i7",
     "Price": 950,
-    "ImageUrl": "images/products/hp3.jpg",
+    "Generation": "12th Generation",
+    "TouchScreen": false,
+    "Condition": "New",
+    "Quantity": 3,
+    "StorageSize": "512 SSD",
+    "RamSize": "32 GB RAM",
     "ProductTypeId": 3,
-    "ProductBrandId": 5
+    "ProductBrandId": 5,
+    "Photos": [
+      {
+        "Url": "images/products/hp3.jpg",
+        "IsMain": true
+      }
+    ]
   },
   {
     "Name": "Huawei",
-    "Specification": "Huawei MateBook X Pro Signature Edition Thin & Light Laptop",
+    "Specification": "Huawei MateBook X Pro",
     "Price": 950,
-    "ImageUrl": "images/products/Huawei.jpg",
+    "Generation": "12th Generation",
+    "TouchScreen": false,
+    "Condition": "New",
+    "Quantity": 3,
+    "StorageSize": "512 SSD",
+    "RamSize": "32 GB RAM",
     "ProductTypeId": 3,
-    "ProductBrandId": 4
+    "ProductBrandId": 4,
+    "Photos": [
+      {
+        "Url": "images/products/Huawei.jpg",
+        "IsMain": true
+      }
+    ]
   },
   {
     "Name": "Huawei",
-    "Specification": "MateBook X Pro Greater Versatility, More Possibilities",
+    "Specification": "MateBook X Pro",
     "Price": 950,
-    "ImageUrl": "images/products/Huawei2.jpg",
+    "Generation": "12th Generation",
+    "TouchScreen": false,
+    "Condition": "New",
+    "Quantity": 3,
+    "StorageSize": "512 SSD",
+    "RamSize": "32 GB RAM",
     "ProductTypeId": 3,
-    "ProductBrandId": 4
+    "ProductBrandId": 4,
+    "Photos": [
+      {
+        "Url": "images/products/Huawei2.jpg",
+        "IsMain": true
+      }
+    ]
   },
   {
     "Name": "Huawei",
-    "Specification": "MateBook 14 Light, Speed, Power",
+    "Specification": "MateBook 14",
     "Price": 950,
-    "ImageUrl": "images/products/Huawei3.jpg",
+    "Generation": "12th Generation",
+    "TouchScreen": false,
+    "Condition": "New",
+    "Quantity": 3,
+    "StorageSize": "512 SSD",
+    "RamSize": "32 GB RAM",
     "ProductTypeId": 3,
-    "ProductBrandId": 4
+    "ProductBrandId": 4,
+    "Photos": [
+      {
+        "Url": "images/products/Huawei3.jpg",
+        "IsMain": true
+      }
+    ]
   }
 ]
