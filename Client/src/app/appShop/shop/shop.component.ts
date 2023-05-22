@@ -26,7 +26,7 @@ export class ShopComponent implements OnInit {
   /**
    *
    */
-  constructor(private shopservice: ShopService) {
+  constructor(private shopService: ShopService) {
 
   }
 
@@ -38,8 +38,9 @@ export class ShopComponent implements OnInit {
 
   }
 
+
   getProducts() {
-    this.shopservice.getProducts(this.shopParams).subscribe({
+    this.shopService.getProducts(this.shopParams).subscribe({
       next: response => {
         this.products = response.data;
         this.shopParams.pageNumber = response.pageIndex;
@@ -51,13 +52,13 @@ export class ShopComponent implements OnInit {
     })
   }
   getBrands() {
-    this.shopservice.getBrands().subscribe({
+    this.shopService.getBrands().subscribe({
       next: response => this.brands = [{ id: 0, name: 'All' }, ...response],
       error: error => console.log(error)
     })
   }
   getTypes() {
-    this.shopservice.getTypes().subscribe({
+    this.shopService.getTypes().subscribe({
       next: response => this.types = [{ id: 0, name: 'All' }, ...response],
       error: error => console.log(error)
     })

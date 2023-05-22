@@ -11,7 +11,7 @@ import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./product-item.component.scss']
 })
 export class ProductItemComponent {
-  @Input() product?: Product;
+  @Input() product!: Product;
   // @Input() types!: Type;
 
   addProductCart = faCartPlus;

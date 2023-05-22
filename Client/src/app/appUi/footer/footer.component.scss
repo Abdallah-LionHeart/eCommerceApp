@@ -13,6 +13,7 @@
   text-align: center;
   line-height: 1.5;
 }
+
 dl {
   display: flex;
   flex-flow: row wrap;
@@ -22,6 +23,7 @@ dl {
 dt {
   flex-basis: 20%;
 }
+
 dd {
   flex-basis: 70%;
   flex-grow: 1;
@@ -29,8 +31,10 @@ dd {
   padding: 2px 4px;
   line-height: 1.5;
 }
+
 .footer-distributed {
   margin-top: 12rem;
+  max-height: 50%;
 }
 
 section {
@@ -42,6 +46,13 @@ section {
   font-size: 22px;
   font-weight: 700;
   text-decoration: underline;
+}
+
+.logo {
+  max-height: 200px;
+  cursor: pointer;
+  align-items: center;
+
 }
 
 .footer-distributed {
@@ -71,6 +82,7 @@ section {
 
 .footer-distributed h3 {
   color: #ffffff;
+  max-height: 30%;
   font: normal 36px "Open Sans", cursive;
   margin: 0;
 }
@@ -179,7 +191,7 @@ section {
   color: #0c0c0c;
   font-size: 14px;
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: 0;
 }
 
 .footer-distributed .footer-icons {
@@ -214,8 +226,8 @@ section {
   .footer-distributed .footer-center,
   .footer-distributed .footer-right {
     display: block;
-    width: 100%;
-    margin-bottom: 40px;
+    width: 50%;
+    margin-bottom: 0;
     text-align: justify;
   }
 

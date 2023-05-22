@@ -1,18 +1,19 @@
 <div class="row" *ngIf="product">
- <div class="col-6">
-  <img src="{{product.photoUrl}}" alt="{{product.name}}" class="w-100">
- </div>
- <div class="col-6 mt-5">
-  <h2>{{product.name}}</h2>
-  <p>{{product.price | currency}}</p>
-  <div class="d-flex justify-content-start align-items-center">
-   <i class="fa fa-minus-circle text-warning me-2" style="cursor: pointer; font-size: 2em;"></i>
-   <span class="font-weight-bold" style="font-size: 1.5em;">2</span>
-   <i class="fa fa-plus-circle text-warning ms-2" style="cursor: pointer; font-size: 2em;"></i>
-   <button class="btn btn-outline-secondary ms-4">Add to cart</button>
-  </div>
-  <div class="row mt-4">
-   <h4>Specification</h4>
+   <div class="col-6">
+      <img src="{{product.photoUrl}}" alt="{{product.name}}" class="w-100">
+   </div>
+   <div class="col-6 mt-5">
+      <h3>{{product.specification}}</h3>
+      <p class="my-3" style="font-size:2em">{{product.price | currency}}</p>
+      <div class="d-flex justify-content-start align-items-center">
+         <i class="fa fa-minus-circle text-warning me-2" style="cursor: pointer; font-size: 2em;"></i>
+         <span class="font-weight-bold" style="font-size: 1.5em;">2</span>
+         <i class="fa fa-plus-circle text-warning ms-2" style="cursor: pointer; font-size: 2em;"></i>
+         <button class="btn btn-outline-secondary ms-5">Add to cart</button>
+         <button class="btn btn-outline-secondary ms-4">Add favourite</button>
+      </div>
+      <div class="row mt-4">
+         <!-- <h4>Specification</h4>
    <p>{{product.specification}}</p>
    <h4>Generation</h4>
    <p>{{product.generation}}</p>
@@ -28,4 +29,80 @@
    <p>{{product.quantity}}</p>
   </div>
  </div>
-</div>
+</div> -->
+
+
+
+         <table class="table" style="width:70%" *ngIf="product">
+            <thead>
+               <tr>
+                  <th>
+                     Product
+                  </th>
+                  <th>
+                     Specification
+                  </th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <td>
+                     Name
+                  </td>
+                  <td>
+                     {{product.name}}
+                  </td>
+               <tr>
+                  <td>
+                     Specification
+                  </td>
+                  <td>
+                     {{product.specification}}
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     Generation
+                  </td>
+                  <td>
+                     {{product.generation}}
+                  </td>
+               <tr>
+                  <td>
+                     Condition
+                  </td>
+                  <td>
+                     {{product.condition}}
+                  </td>
+               <tr>
+                  <td>
+                     Ram Size
+                  </td>
+                  <td>
+                     {{product.ramSize}}
+                  </td>
+               <tr>
+                  <td>
+                     Storage Size
+                  </td>
+                  <td>
+                     {{product.storageSize}}
+                  </td>
+               <tr>
+                  <td>
+                     Touch Screen
+                  </td>
+                  <td>
+                     {{product.touchScreen}}
+                  </td>
+               <tr>
+                  <td>
+                     Quantity
+                  </td>
+                  <td>
+                     {{product.quantity}}
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
