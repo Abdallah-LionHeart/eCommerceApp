@@ -10,7 +10,7 @@ import { BreadcrumbService } from 'xng-breadcrumb';
   styleUrls: ['./product-details.component.scss']
 })
 export class ProductDetailsComponent implements OnInit {
-  product: Product | undefined;
+  product?: Product;
   /**
    *
    */

@@ -11,9 +11,10 @@ import { ShopService } from 'src/app/appServices/shop.service';
   styleUrls: ['./shop.component.scss']
 })
 export class ShopComponent implements OnInit {
-  products!: Product[]
-  brands!: Brand[];
-  types!: Type[];
+  @ViewChild('search') searchTerm!: ElementRef;
+  products: Product[] = []
+  brands: Brand[] = [];
+  types: Type[] = [];
   shopParams = new ShopParams();
   sortOptions = [
     { name: 'Alphabetical', value: 'name' },
@@ -21,7 +22,6 @@ export class ShopComponent implements OnInit {
     { name: 'Price high to low', value: 'priceDsc' }
   ]
   totalCount = 0;
-  @ViewChild('search') searchTerm!: ElementRef;
 
   /**
    *
@@ -43,6 +43,11 @@ export class ShopComponent implements OnInit {
     this.shopService.getProducts(this.shopParams).subscribe({
       next: response => {
         this.products = response.data;
+        this.products = response.data.filter((product: Product) => product.photos.length > 0);
+        this.products.forEach((product: Product) => {
+          product.photoUrl = product.photos[0].url;
+        })
+
         this.shopParams.pageNumber = response.pageIndex;
         this.shopParams.pageSize = response.pageSize;
         this.totalCount = response.count;
@@ -51,6 +56,18 @@ export class ShopComponent implements OnInit {
       error: error => console.log(error)
     })
   }
+
+
+
+  // getProducts() {
+  //   this.shopService.getProducts().subscribe({
+  //     next: response => {
+  //       console.log(response?.data)
+  //     }
+  //   })
+  // }
+
+
   getBrands() {
     this.shopService.getBrands().subscribe({
       next: response => this.brands = [{ id: 0, name: 'All' }, ...response],

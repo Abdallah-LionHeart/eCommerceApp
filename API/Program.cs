@@ -4,6 +4,7 @@ using API.Interfaces;
 using API.Meddleware;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using StackExchange.Redis;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +22,12 @@ builder.Services.AddDbContext<StoreContext>(opt =>
 
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+builder.Services.AddScoped<IBasketRepository, BasketRepository>();
+builder.Services.AddSingleton<IConnectionMultiplexer>(c =>
+{
+ var options = ConfigurationOptions.Parse(builder.Configuration.GetConnectionString("Redis"));
+ return ConnectionMultiplexer.Connect(options);
+});
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 // builder.Configuration.AddEnvironmentVariables();
 

@@ -1,11 +1,11 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environments';
 import { Brand } from '../appModels/brand';
 import { Pagination } from '../appModels/pagination';
 import { Product } from '../appModels/products';
 import { ShopParams } from '../appModels/shopParams';
 import { Type } from '../appModels/type';
-import { environment } from 'src/environments/environments';
 
 @Injectable({
   providedIn: 'root'
