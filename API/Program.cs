@@ -1,7 +1,9 @@
 using API.Data;
 using API.Errors;
+using API.Helpers;
 using API.Interfaces;
 using API.Meddleware;
+using API.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using StackExchange.Redis;
@@ -29,6 +31,8 @@ builder.Services.AddSingleton<IConnectionMultiplexer>(c =>
  return ConnectionMultiplexer.Connect(options);
 });
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("CloudinarySettings"));
+builder.Services.AddScoped<IPhotoService, PhotoService>();
 // builder.Configuration.AddEnvironmentVariables();
 
 builder.Services.Configure<ApiBehaviorOptions>(options =>

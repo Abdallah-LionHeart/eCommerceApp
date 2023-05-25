@@ -48,9 +48,25 @@ namespace API.Data
    return SpecificationEvaluator<T>.GetQuery(_context.Set<T>().AsQueryable(), spec);
   }
 
-  public Task<T> GetByNameAsync(string name)
+  public void Update(Product product)
   {
-   throw new NotImplementedException();
+   _context.Entry(product).State = EntityState.Modified;
+
   }
+
+  public async Task<bool> SaveAllAsync()
+  {
+   return await _context.SaveChangesAsync() > 0;
+  }
+
+
+
+  // public Task<IReadOnlyList<T>> UpdateAsync(int id, T entity)
+  // {
+  //  var entityToUpdate = _context.Set<T>().FindAsync(id);
+  //  _context.Entry(entityToUpdate).CurrentValues.SetValues(entity);
+  //  return _context.SaveChangesAsync();
+
+  // }
  }
 }

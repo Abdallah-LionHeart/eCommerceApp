@@ -11,6 +11,8 @@ namespace API.Interfaces
   Task<T> GetEntityWithSpec(ISpecifications<T> spec);
   Task<IReadOnlyList<T>> ListAsync(ISpecifications<T> spec);
   Task<int> CountAsync(ISpecifications<T> spec);
+  void Update(Product product);
+  Task<bool> SaveAllAsync();
 
  }
 }

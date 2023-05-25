@@ -36,15 +36,15 @@
     </section>
     <section class="col-9">
       <div class="d-flex">
-        <div class="input-group row-cols-10 g-1 my-3">
+        <div class="input-group row-cols-11 g-1 my-3">
           <input (keyup.enter)="onSearch()" type="text" class="form-control" placeholder="Search" #search>
           <button (click)="onSearch()" class="btn btn-outline-secondary" type="button">Search</button>
           <button (click)="onRest()" class="btn btn-outline-secondary" type="button">Rest</button>
         </div>
       </div>
 
-      <div class="row row-cols-10 g-1 my-3">
-        <div class="col" *ngFor="let product of products">
+      <div class="row col-6 g-1 my-3">
+        <div *ngFor="let product of products">
           <app-product-item [product]="product"></app-product-item>
         </div>
       </div>

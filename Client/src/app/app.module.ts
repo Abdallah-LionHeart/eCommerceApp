@@ -1,7 +1,8 @@
-import { NO_ERRORS_SCHEMA, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -14,20 +15,18 @@ import { AppComponent } from './app.component';
 import { NotFoundComponent } from './appError/not-found/not-found.component';
 import { ServerErrorComponent } from './appError/server-error/server-error.component';
 import { TestErrorComponent } from './appError/test-error/test-error.component';
+import { HomeComponent } from './appHome/home.component';
 import { ErrorInterceptor } from './appInterceptors/error.interceptor';
 import { LoadingInterceptor } from './appInterceptors/loading.interceptor';
 import { SharedModule } from './appModule/shared.module';
 import { NavbarComponent } from './appNavbar/navbar.component';
-import { ProductDetailsComponent } from './appShop/product-details/product-details.component';
-import { ProductItemComponent } from './appShop/product-item/product-item.component';
-import { ShopComponent } from './appShop/shop/shop.component';
+import { PhotoEditorComponent } from './appPhoto/photo-editor/photo-editor.component';
 import { FooterComponent } from './appUi/footer/footer.component';
 import { HeaderComponent } from './appUi/header/header.component';
 import { NavBarComponent } from './appUiParts/nav-bar/nav-bar.component';
-import { PagerComponent } from './appUiParts/pager/pager.component';
-import { PagingHeaderComponent } from './appUiParts/paging-header/paging-header.component';
 import { SectionHeaderComponent } from './appUiParts/section-header/section-header.component';
-import { HomeComponent } from './appHome/home.component';
+import { FileUploader } from 'ng2-file-upload';
+// import { FileUploader } from 'ng2-file-upload/file-upload/file-uploader.class';
 
 
 
@@ -35,25 +34,28 @@ import { HomeComponent } from './appHome/home.component';
 @NgModule({
   declarations: [
     AppComponent,
-    ShopComponent,
+
+    // ShopComponent,
     NavbarComponent,
-    ProductItemComponent,
+    // ProductItemComponent,
     FooterComponent,
     HeaderComponent,
-    PagingHeaderComponent,
-    PagerComponent,
-    ProductDetailsComponent,
+    SectionHeaderComponent,
+    // ProductDetailsComponent,
     NavBarComponent,
     TestErrorComponent,
     NotFoundComponent,
     ServerErrorComponent,
-    SectionHeaderComponent,
+
     HomeComponent,
+    PhotoEditorComponent,
+    // ProductEditComponent,
     // CarouselModule,
 
 
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     RouterModule,
@@ -77,21 +79,18 @@ import { HomeComponent } from './appHome/home.component';
     BreadcrumbModule,
     NgxSpinnerModule.forRoot(),
     CarouselModule,
+    FileUploader,
     // NgxUsefulSwiperModule,
 
   ],
   exports: [
     HttpClientModule,
-    PagingHeaderComponent,
-    PagerComponent,
-    SectionHeaderComponent,
     NgxSpinnerModule,
     CarouselModule,
+    FormsModule,
+    PhotoEditorComponent,
 
-  ],
-  schemas: [
-    // CUSTOM_ELEMENTS_SCHEMA,
-    NO_ERRORS_SCHEMA
+
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },

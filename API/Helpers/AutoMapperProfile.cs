@@ -14,6 +14,7 @@ namespace API.Helpers
     .ForMember(dest => dest.PhotoUrl, opt => opt.MapFrom(src => src.Photos.FirstOrDefault(x => x.IsMain).Url));
    //  .ForMember(d => d.PhotoUrl, o => o.MapFrom<PhotoUrlResolver>());
    CreateMap<Photo, PhotoDto>();
+    CreateMap<ProductUpdateDto, Product>();
    //   .ForMember(d => d.Url,
    //                o => o.MapFrom<PhotoUrlResolver>());
    // }

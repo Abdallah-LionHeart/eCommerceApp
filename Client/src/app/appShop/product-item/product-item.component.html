@@ -1,5 +1,57 @@
-<!-- <section style="background-color: #eee;" *ngIf="product"> -->
-<div class="container py-5" *ngIf="product">
+<div class="container" *ngIf="product">
+  <div class="row">
+    <div class="col-6">
+      <div class="images">
+        <img
+          src="{{product.photoUrl}}" />
+      </div>
+      <div class="product">
+        <p>{{product.name}}</p>
+        <!-- <h1>Nike Epic React Flyknit</h1> -->
+        <h2>{{product.price}}</h2>
+        <p class="desc">
+          {{product.specification}}
+        </p>
+        <div class="buttons">
+          <!-- <button class="add">Add to Cart</button> -->
+          <button class="add" type="button"
+            routerLink="/shop/{{product.id}}">View</button>
+          <button class="add" type="button"
+            routerLink="/shop/edit/{{product.id}}">
+            <i class="fa-light fa-pen-to-square"></i>
+          </button>
+          <button class="add" type="button">
+            <i class="fa-solid fa-cart-circle-plus"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="container">
+  <div class="row col-6">
+    <div class="images">
+      <img
+        src="/assets/products/ASUS Zenbook Pro 14 1.jpg" />
+    </div>
+    <div class="product">
+      <p>Women's Running Shoe</p>
+      <h1>Nike Epic React Flyknit</h1>
+      <h2>$150</h2>
+      <p class="desc">The Nike Epic React Flyknit foam cushioning is responsive yet light-weight, durable yet soft. This
+      </p>
+      <div class="buttons">
+        <button class="add">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+
+
+<!-- <div class="container py-5" *ngIf="product">
   <div class="row justify-content-center mb-3">
     <div class="col-md-12 col-xl-10">
       <div class="card d-flex shadow-0 border rounded-3 px-4">
@@ -33,13 +85,17 @@
           <div class="col-md-6 col-lg-3 col-xl-3 border-sm-start-none border-start">
             <div class="d-flex flex-row align-items-center mb-1">
               <h4 class="mb-1 me-1">{{product.price | currency}}</h4>
-              <!-- <span class="text-danger"><s>$820.99</s></span> -->
+              <span class="text-danger"><s>$820.99</s></span>
             </div>
             <h6 class="text-success">{{product.condition}}</h6>
             <div class="d-flex flex-column mt-4">
               <button class="btn btn-outline-primary btn-sm" type="button"
                 routerLink="/shop/{{product.id}}">View</button>
+              <button class="btn btn-outline-primary btn-sm" type="button"
+                routerLink="/shop/edit/{{product.id}}"><i class="fa-light fa-pen-to-square"></i>
+              </button>
               <button class="btn btn-outline-primary btn-sm mt-2" type="button">
+                <i class="fa-solid fa-cart-circle-plus"></i>
                 <fa-icon [icon]="addProductCart"></fa-icon>
               </button>
             </div>
@@ -48,4 +104,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->

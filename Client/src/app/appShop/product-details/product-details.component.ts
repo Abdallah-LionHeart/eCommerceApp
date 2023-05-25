@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { TabsetComponent } from 'ngx-bootstrap/tabs';
 import { Product } from 'src/app/appModels/products';
 import { ShopService } from 'src/app/appServices/shop.service';
 import { BreadcrumbService } from 'xng-breadcrumb';
@@ -10,14 +11,15 @@ import { BreadcrumbService } from 'xng-breadcrumb';
   styleUrls: ['./product-details.component.scss']
 })
 export class ProductDetailsComponent implements OnInit {
+  @ViewChild('productTabs', { static: true }) productTabs!: TabsetComponent;
   product?: Product;
   /**
    *
    */
   constructor(private shopService: ShopService, private activatedRoute: ActivatedRoute,
-    private bcService: BreadcrumbService, private bcService2: BreadcrumbService) {
+    private bcService: BreadcrumbService) {
 
-    this.bcService2.set('@productDetails', ' ');
+    this.bcService.set('@productDetails', ' ');
   }
   ngOnInit(): void {
     this.loadProduct();
@@ -33,5 +35,13 @@ export class ProductDetailsComponent implements OnInit {
         },
         error: error => console.log(error)
       })
+  }
+
+
+
+  selectTab(heading: string) {
+    if (this.productTabs) {
+      this.productTabs.tabs.find(x => x.heading == heading)!.active = true
+    }
   }
 }
