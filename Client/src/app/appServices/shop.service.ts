@@ -44,7 +44,7 @@ export class ShopService {
 
 
   getProduct(id: number) {
-    const product = this.products.find(x => x.id === id);
+    // const product = this.products.find(x => x.id === id);
     return this.http.get<Product>(this.baseUrl + 'products/' + id);
   }
 

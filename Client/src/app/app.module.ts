@@ -1,11 +1,11 @@
-import { NgModule } from '@angular/core';
+import { NO_ERRORS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FileUploadModule } from 'ng2-file-upload';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { ToastrModule } from 'ngx-toastr';
@@ -20,13 +20,10 @@ import { ErrorInterceptor } from './appInterceptors/error.interceptor';
 import { LoadingInterceptor } from './appInterceptors/loading.interceptor';
 import { SharedModule } from './appModule/shared.module';
 import { NavbarComponent } from './appNavbar/navbar.component';
-import { PhotoEditorComponent } from './appPhoto/photo-editor/photo-editor.component';
 import { FooterComponent } from './appUi/footer/footer.component';
 import { HeaderComponent } from './appUi/header/header.component';
 import { NavBarComponent } from './appUiParts/nav-bar/nav-bar.component';
 import { SectionHeaderComponent } from './appUiParts/section-header/section-header.component';
-import { FileUploader } from 'ng2-file-upload';
-// import { FileUploader } from 'ng2-file-upload/file-upload/file-uploader.class';
 
 
 
@@ -48,7 +45,6 @@ import { FileUploader } from 'ng2-file-upload';
     ServerErrorComponent,
 
     HomeComponent,
-    PhotoEditorComponent,
     // ProductEditComponent,
     // CarouselModule,
 
@@ -58,11 +54,17 @@ import { FileUploader } from 'ng2-file-upload';
     FormsModule,
     BrowserModule,
     AppRoutingModule,
-    RouterModule,
     BrowserAnimationsModule,
     SharedModule,
     HttpClientModule,
     FontAwesomeModule,
+    BreadcrumbModule,
+    NgxSpinnerModule.forRoot(),
+    CarouselModule.forRoot(),
+    FileUploadModule,
+
+
+    // NgxUsefulSwiperModule,
     ToastrModule.forRoot(
       {
         positionClass: 'toast-middle-center',
@@ -76,11 +78,6 @@ import { FileUploader } from 'ng2-file-upload';
         resetTimeoutOnDuplicate: true,
       }
     ),
-    BreadcrumbModule,
-    NgxSpinnerModule.forRoot(),
-    CarouselModule,
-    FileUploader,
-    // NgxUsefulSwiperModule,
 
   ],
   exports: [
@@ -88,10 +85,13 @@ import { FileUploader } from 'ng2-file-upload';
     NgxSpinnerModule,
     CarouselModule,
     FormsModule,
-    PhotoEditorComponent,
 
 
   ],
+  schemas: [
+    NO_ERRORS_SCHEMA
+  ],
+
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },

@@ -12,7 +12,7 @@ import { BreadcrumbService } from 'xng-breadcrumb';
 })
 export class ProductDetailsComponent implements OnInit {
   @ViewChild('productTabs', { static: true }) productTabs!: TabsetComponent;
-  product?: Product;
+  product!: Product;
   /**
    *
    */
@@ -30,6 +30,7 @@ export class ProductDetailsComponent implements OnInit {
     if (id)
       this.shopService.getProduct(+id).subscribe({
         next: product => {
+          this.product
           this.product = product;
           this.bcService.set('@productDetails', product.name);
         },

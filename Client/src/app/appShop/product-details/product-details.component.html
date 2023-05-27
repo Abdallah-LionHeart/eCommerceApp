@@ -1,4 +1,5 @@
-<div class="row" *ngIf="product">
+<div class="row">
+   <!-- <div class="row" *ngIf="product"> -->
    <div class="col-6">
       <img src="{{product.photoUrl}}" alt="{{product.name}}" class="w-100">
    </div>
@@ -13,24 +14,6 @@
          <button class="btn btn-outline-secondary ms-4">Add favourite</button>
       </div>
       <div class="row mt-4">
-         <!-- <h4>Specification</h4>
-   <p>{{product.specification}}</p>
-   <h4>Generation</h4>
-   <p>{{product.generation}}</p>
-   <h4>Condiction</h4>
-   <p>{{product.condition}}</p>
-   <h4>Ram Size</h4>
-   <p>{{product.ramSize}}</p>
-   <h4>Storage Size</h4>
-   <p>{{product.storageSize}}</p>
-   <h4>Touch Screen</h4>
-   <p>{{product.touchScreen}}</p>
-   <h4>Quantity</h4>
-   <p>{{product.quantity}}</p>
-  </div>
- </div>
-</div> -->
-
 
 
          <table class="table" style="width:70%" *ngIf="product">

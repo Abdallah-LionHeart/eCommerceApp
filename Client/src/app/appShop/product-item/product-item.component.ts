@@ -4,7 +4,6 @@ import { Product } from 'src/app/appModels/products';
 
 // ! fontAwsome
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
-import { Observable } from 'rxjs';
 import { ShopService } from 'src/app/appServices/shop.service';
 
 @Component({
@@ -14,8 +13,8 @@ import { ShopService } from 'src/app/appServices/shop.service';
 })
 export class ProductItemComponent implements OnInit {
   addProductCart = faCartPlus;
-  @Input() product?: Product;
-  products$: Observable<Product[]> | undefined
+  @Input() product!: Product;
+  // products$: Observable<Product[]> | undefined
 
 
   constructor(private shopService: ShopService) {

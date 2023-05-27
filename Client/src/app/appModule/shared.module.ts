@@ -18,6 +18,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { FileUploadModule } from 'ng2-file-upload';
+import { PhotoEditorComponent } from '../appPhoto/photo-editor/photo-editor.component';
 import { PagerComponent } from '../appUiParts/pager/pager.component';
 import { PagingHeaderComponent } from '../appUiParts/paging-header/paging-header.component';
 // import { FileUploader } from 'ng2-file-upload';
@@ -28,10 +30,13 @@ import { PagingHeaderComponent } from '../appUiParts/paging-header/paging-header
   declarations: [
     PagingHeaderComponent,
     PagerComponent,
+    PhotoEditorComponent,
+
   ],
   imports: [
     CommonModule,
     RouterModule,
+    FileUploadModule,
 
 
 
@@ -56,6 +61,10 @@ import { PagingHeaderComponent } from '../appUiParts/paging-header/paging-header
   exports: [
     PagingHeaderComponent,
     PagerComponent,
+    PhotoEditorComponent,
+    FileUploadModule,
+
+
 
     // !ngx-bootstrap
     PaginationModule,

@@ -23,9 +23,6 @@ export class ShopComponent implements OnInit {
   ]
   totalCount = 0;
 
-  /**
-   *
-   */
   constructor(private shopService: ShopService) {
 
   }

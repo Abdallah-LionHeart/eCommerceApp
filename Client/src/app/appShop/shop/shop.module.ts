@@ -7,7 +7,6 @@ import { ProductEditComponent } from '../product-edit/product-edit.component';
 import { ProductItemComponent } from '../product-item/product-item.component';
 import { ShopRoutingModule } from './shop-routing.module';
 import { ShopComponent } from './shop.component';
-import { AppModule } from "../../app.module";
 
 
 @NgModule({
@@ -15,13 +14,13 @@ import { AppModule } from "../../app.module";
     ShopComponent,
     ProductItemComponent,
     ProductDetailsComponent,
-    ProductEditComponent
+    ProductEditComponent,
   ],
   imports: [
     CommonModule,
     SharedModule,
     ShopRoutingModule,
-    AppModule
+    // AppRoutingModule,
   ]
 })
 export class ShopModule { }
