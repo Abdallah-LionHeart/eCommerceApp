@@ -8,158 +8,158 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace API.DBMigrations.Migrations
 {
-    [DbContext(typeof(StoreContext))]
-    partial class StoreContextModelSnapshot : ModelSnapshot
-    {
-        protected override void BuildModel(ModelBuilder modelBuilder)
-        {
+ [DbContext(typeof(StoreContext))]
+ partial class StoreContextModelSnapshot : ModelSnapshot
+ {
+  protected override void BuildModel(ModelBuilder modelBuilder)
+  {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "7.0.4");
+   modelBuilder.HasAnnotation("ProductVersion", "7.0.4");
 
-            modelBuilder.Entity("API.Entity.Photo", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+   modelBuilder.Entity("API.Entity.Photo", b =>
+       {
+        b.Property<int>("Id")
+                     .ValueGeneratedOnAdd()
+                     .HasColumnType("INTEGER");
 
-                    b.Property<bool>("IsMain")
-                        .HasColumnType("INTEGER");
+        b.Property<bool>("IsMain")
+                     .HasColumnType("INTEGER");
 
-                    b.Property<int>("ProductId")
-                        .HasColumnType("INTEGER");
+        b.Property<int>("ProductId")
+                     .HasColumnType("INTEGER");
 
-                    b.Property<string>("PublicId")
-                        .HasColumnType("TEXT");
+        b.Property<string>("PublicId")
+                     .HasColumnType("TEXT");
 
-                    b.Property<string>("Url")
-                        .HasColumnType("TEXT");
+        b.Property<string>("Url")
+                     .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
+        b.HasKey("Id");
 
-                    b.HasIndex("ProductId");
+        b.HasIndex("ProductId");
 
-                    b.ToTable("Photos");
-                });
+        b.ToTable("Photos");
+       });
 
-            modelBuilder.Entity("API.Entity.Product", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+   modelBuilder.Entity("API.Entity.Product", b =>
+       {
+        b.Property<int>("Id")
+                     .ValueGeneratedOnAdd()
+                     .HasColumnType("INTEGER");
 
-                    b.Property<string>("Condition")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+        b.Property<string>("Condition")
+                     .IsRequired()
+                     .HasColumnType("TEXT");
 
-                    b.Property<string>("Generation")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+        b.Property<string>("Generation")
+                     .IsRequired()
+                     .HasColumnType("TEXT");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("TEXT");
+        b.Property<string>("Name")
+                     .IsRequired()
+                     .HasMaxLength(100)
+                     .HasColumnType("TEXT");
 
-                    b.Property<double>("Price")
-                        .HasColumnType("decimal(18,2)");
+        b.Property<double>("Price")
+                     .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("ProductBrandId")
-                        .HasColumnType("INTEGER");
+        b.Property<int>("ProductBrandId")
+                     .HasColumnType("INTEGER");
 
-                    b.Property<int>("ProductTypeId")
-                        .HasColumnType("INTEGER");
+        b.Property<int>("ProductTypeId")
+                     .HasColumnType("INTEGER");
 
-                    b.Property<int>("Quantity")
-                        .HasColumnType("INTEGER");
+        b.Property<int>("Quantity")
+                     .HasColumnType("INTEGER");
 
-                    b.Property<string>("RamSize")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+        b.Property<string>("RamSize")
+                     .IsRequired()
+                     .HasColumnType("TEXT");
 
-                    b.Property<string>("Specification")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+        b.Property<string>("Specification")
+                     .IsRequired()
+                     .HasColumnType("TEXT");
 
-                    b.Property<string>("StorageSize")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+        b.Property<string>("StorageSize")
+                     .IsRequired()
+                     .HasColumnType("TEXT");
 
-                    b.Property<bool>("TouchScreen")
-                        .HasColumnType("INTEGER")
-                        .HasDefaultValue(false);
+        b.Property<bool>("TouchScreen")
+                     .HasColumnType("INTEGER")
+                     .HasDefaultValue(false);
 
-                    b.HasKey("Id");
+        b.HasKey("Id");
 
-                    b.HasIndex("ProductBrandId");
+        b.HasIndex("ProductBrandId");
 
-                    b.HasIndex("ProductTypeId");
+        b.HasIndex("ProductTypeId");
 
-                    b.ToTable("Products");
-                });
+        b.ToTable("Products");
+       });
 
-            modelBuilder.Entity("API.Entity.ProductBrand", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+   modelBuilder.Entity("API.Entity.ProductBrand", b =>
+       {
+        b.Property<int>("Id")
+                     .ValueGeneratedOnAdd()
+                     .HasColumnType("INTEGER");
 
-                    b.Property<string>("Name")
-                        .HasColumnType("TEXT");
+        b.Property<string>("Name")
+                     .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
+        b.HasKey("Id");
 
-                    b.ToTable("ProductBrands");
-                });
+        b.ToTable("ProductBrands");
+       });
 
-            modelBuilder.Entity("API.Entity.ProductType", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+   modelBuilder.Entity("API.Entity.ProductType", b =>
+       {
+        b.Property<int>("Id")
+                     .ValueGeneratedOnAdd()
+                     .HasColumnType("INTEGER");
 
-                    b.Property<string>("Name")
-                        .HasColumnType("TEXT");
+        b.Property<string>("Name")
+                     .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
+        b.HasKey("Id");
 
-                    b.ToTable("ProductTypes");
-                });
+        b.ToTable("ProductTypes");
+       });
 
-            modelBuilder.Entity("API.Entity.Photo", b =>
-                {
-                    b.HasOne("API.Entity.Product", "Product")
-                        .WithMany("Photos")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+   modelBuilder.Entity("API.Entity.Photo", b =>
+       {
+        b.HasOne("API.Entity.Product", "Product")
+                     .WithMany("Photos")
+                     .HasForeignKey("ProductId")
+                     .OnDelete(DeleteBehavior.Cascade)
+                     .IsRequired();
 
-                    b.Navigation("Product");
-                });
+        b.Navigation("Product");
+       });
 
-            modelBuilder.Entity("API.Entity.Product", b =>
-                {
-                    b.HasOne("API.Entity.ProductBrand", "ProductBrand")
-                        .WithMany()
-                        .HasForeignKey("ProductBrandId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+   modelBuilder.Entity("API.Entity.Product", b =>
+       {
+        b.HasOne("API.Entity.ProductBrand", "ProductBrand")
+                     .WithMany()
+                     .HasForeignKey("ProductBrandId")
+                     .OnDelete(DeleteBehavior.Cascade)
+                     .IsRequired();
 
-                    b.HasOne("API.Entity.ProductType", "ProductType")
-                        .WithMany()
-                        .HasForeignKey("ProductTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+        b.HasOne("API.Entity.ProductType", "ProductType")
+                     .WithMany()
+                     .HasForeignKey("ProductTypeId")
+                     .OnDelete(DeleteBehavior.Cascade)
+                     .IsRequired();
 
-                    b.Navigation("ProductBrand");
+        b.Navigation("ProductBrand");
 
-                    b.Navigation("ProductType");
-                });
+        b.Navigation("ProductType");
+       });
 
-            modelBuilder.Entity("API.Entity.Product", b =>
-                {
-                    b.Navigation("Photos");
-                });
+   modelBuilder.Entity("API.Entity.Product", b =>
+       {
+        b.Navigation("Photos");
+       });
 #pragma warning restore 612, 618
-        }
-    }
+  }
+ }
 }

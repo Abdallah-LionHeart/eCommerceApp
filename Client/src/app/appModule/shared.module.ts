@@ -6,9 +6,9 @@ import { RouterModule } from '@angular/router';
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { TabsModule } from 'ngx-bootstrap/tabs';
-// import { FileSelectDirective, FileDropDirective, FileUploader } from 'ng2-file-upload/ng2-file-upload';
 
 // !Angular Material
+import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
@@ -19,11 +19,11 @@ import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { FileUploadModule } from 'ng2-file-upload';
+import { ToastrModule } from 'ngx-toastr';
 import { PhotoEditorComponent } from '../appPhoto/photo-editor/photo-editor.component';
+import { OrderTotalsComponent } from '../appShopOrder/order-totals/order-totals.component';
 import { PagerComponent } from '../appUiParts/pager/pager.component';
 import { PagingHeaderComponent } from '../appUiParts/paging-header/paging-header.component';
-// import { FileUploader } from 'ng2-file-upload';
-
 
 
 @NgModule({
@@ -31,12 +31,28 @@ import { PagingHeaderComponent } from '../appUiParts/paging-header/paging-header
     PagingHeaderComponent,
     PagerComponent,
     PhotoEditorComponent,
+    OrderTotalsComponent,
+
 
   ],
+
   imports: [
     CommonModule,
     RouterModule,
     FileUploadModule,
+    ToastrModule.forRoot(
+      {
+        positionClass: 'toast-middle-center',
+        timeOut: 3000,
+        progressBar: true,
+        progressAnimation: 'increasing',
+        preventDuplicates: true,
+        enableHtml: true,
+        closeButton: true,
+        autoDismiss: true,
+        resetTimeoutOnDuplicate: true,
+      }),
+
 
 
 
@@ -44,11 +60,10 @@ import { PagingHeaderComponent } from '../appUiParts/paging-header/paging-header
     PaginationModule.forRoot(),
     NgxGalleryModule,
     TabsModule,
-    // FileUploader,
 
 
     // !Angular Material
-    MatIconModule,
+
     MatDividerModule,
     MatToolbarModule,
     MatSidenavModule,
@@ -57,12 +72,16 @@ import { PagingHeaderComponent } from '../appUiParts/paging-header/paging-header
     MatTableModule,
     MatProgressSpinnerModule,
     MatTabsModule,
+    MatIconModule,
+    MatButtonModule
   ],
+
   exports: [
     PagingHeaderComponent,
     PagerComponent,
     PhotoEditorComponent,
     FileUploadModule,
+    OrderTotalsComponent,
 
 
 
@@ -70,11 +89,9 @@ import { PagingHeaderComponent } from '../appUiParts/paging-header/paging-header
     PaginationModule,
     NgxGalleryModule,
     TabsModule,
-    // FileUploader,
 
 
     // !Angular Material
-    MatIconModule,
     MatDividerModule,
     MatToolbarModule,
     MatSidenavModule,
@@ -83,6 +100,9 @@ import { PagingHeaderComponent } from '../appUiParts/paging-header/paging-header
     MatTableModule,
     MatProgressSpinnerModule,
     MatTabsModule,
+    MatIconModule,
+    MatButtonModule
+
 
 
   ],

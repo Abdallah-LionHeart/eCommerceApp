@@ -1,10 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { faPenToSquare } from '@fortawesome/free-regular-svg-icons';
+import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 import { Product } from 'src/app/appModels/products';
+import { BasketService } from 'src/app/appServices/basket.service';
 
 
 // ! fontAwsome
-import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
-import { ShopService } from 'src/app/appServices/shop.service';
 
 @Component({
   selector: 'app-product-item',
@@ -12,19 +13,22 @@ import { ShopService } from 'src/app/appServices/shop.service';
   styleUrls: ['./product-item.component.scss']
 })
 export class ProductItemComponent implements OnInit {
-  addProductCart = faCartPlus;
-  @Input() product!: Product;
-  // products$: Observable<Product[]> | undefined
+  @Input() product?: Product;
+  faPenToSquare = faPenToSquare;
+  faCartPlus = faCartPlus;
 
-
-  constructor(private shopService: ShopService) {
-
-
+  constructor(private basketService: BasketService) {
   }
+
   ngOnInit() {
-    // this.products$ = this.shopService.getProducts();
+
   }
-  // @Input() types!: Type;
+
+
+
+  addItemToBasket() {
+    this.product && this.basketService.addItemToBasket(this.product);
+  }
 
 
 }

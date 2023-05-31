@@ -28,10 +28,14 @@
      <a class="nav-link" routerLink="/shop/edit">Edit</a>
     </li>
     <li class="nav-item" routerLinkActive="active">
-     <a class="nav-link" routerLink="./basket">
+     <a class="nav-link position-relative" routerLink="./basket">
       <fa-icon [icon]="myNavCart"></fa-icon>
+      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill md-primary">
+       <span *ngIf="(basketService.basketSource$ | async) as basket">{{getBasketCount(basket.items)}}</span>
+      </span>
      </a>
     </li>
+
    </ul>
   </div>
  </div>

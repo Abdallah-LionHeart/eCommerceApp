@@ -24,7 +24,7 @@ builder.Services.AddDbContext<StoreContext>(opt =>
 
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-builder.Services.AddScoped<IBasketRepository, BasketRepository>();
+
 builder.Services.AddSingleton<IConnectionMultiplexer>(c =>
 {
  var options = ConfigurationOptions.Parse(builder.Configuration.GetConnectionString("Redis"));
@@ -32,6 +32,7 @@ builder.Services.AddSingleton<IConnectionMultiplexer>(c =>
 });
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("CloudinarySettings"));
+builder.Services.AddScoped<IBasketRepository, BasketRepository>();
 builder.Services.AddScoped<IPhotoService, PhotoService>();
 // builder.Configuration.AddEnvironmentVariables();
 

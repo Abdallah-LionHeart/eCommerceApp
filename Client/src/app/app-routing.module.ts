@@ -12,6 +12,7 @@ const routes: Routes = [
   { path: 'server-error', component: ServerErrorComponent },
   { path: 'shop', loadChildren: () => import('./appShop/shop/shop.module').then(mod => mod.ShopModule) },
   { path: 'basket', loadChildren: () => import('./appShopBasket/basket.module').then(mod => mod.BasketModule) },
+  { path: 'checkout', loadChildren: () => import('./appShopOrder/checkout/checkout.module').then(mod => mod.CheckoutModule) },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 

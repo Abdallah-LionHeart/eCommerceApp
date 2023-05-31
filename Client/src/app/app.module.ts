@@ -8,7 +8,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FileUploadModule } from 'ng2-file-upload';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { NgxSpinnerModule } from 'ngx-spinner';
-import { ToastrModule } from 'ngx-toastr';
 import { BreadcrumbModule } from 'xng-breadcrumb';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,8 +19,7 @@ import { ErrorInterceptor } from './appInterceptors/error.interceptor';
 import { LoadingInterceptor } from './appInterceptors/loading.interceptor';
 import { SharedModule } from './appModule/shared.module';
 import { NavbarComponent } from './appNavbar/navbar.component';
-import { FooterComponent } from './appUi/footer/footer.component';
-import { HeaderComponent } from './appUi/header/header.component';
+import { FooterComponent } from './appUiParts/footer/footer.component';
 import { NavBarComponent } from './appUiParts/nav-bar/nav-bar.component';
 import { SectionHeaderComponent } from './appUiParts/section-header/section-header.component';
 
@@ -31,22 +29,15 @@ import { SectionHeaderComponent } from './appUiParts/section-header/section-head
 @NgModule({
   declarations: [
     AppComponent,
-
-    // ShopComponent,
     NavbarComponent,
-    // ProductItemComponent,
     FooterComponent,
-    HeaderComponent,
     SectionHeaderComponent,
-    // ProductDetailsComponent,
     NavBarComponent,
     TestErrorComponent,
     NotFoundComponent,
     ServerErrorComponent,
-
     HomeComponent,
-    // ProductEditComponent,
-    // CarouselModule,
+
 
 
   ],
@@ -62,24 +53,11 @@ import { SectionHeaderComponent } from './appUiParts/section-header/section-head
     NgxSpinnerModule.forRoot(),
     CarouselModule.forRoot(),
     FileUploadModule,
+    FontAwesomeModule,
 
-
-    // NgxUsefulSwiperModule,
-    ToastrModule.forRoot(
-      {
-        positionClass: 'toast-middle-center',
-        timeOut: 3000,
-        progressBar: true,
-        progressAnimation: 'increasing',
-        preventDuplicates: true,
-        enableHtml: true,
-        closeButton: true,
-        autoDismiss: true,
-        resetTimeoutOnDuplicate: true,
-      }
-    ),
 
   ],
+
   exports: [
     HttpClientModule,
     NgxSpinnerModule,
@@ -87,7 +65,9 @@ import { SectionHeaderComponent } from './appUiParts/section-header/section-head
     FormsModule,
 
 
+
   ],
+
   schemas: [
     NO_ERRORS_SCHEMA
   ],
