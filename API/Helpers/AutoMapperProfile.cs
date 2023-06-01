@@ -1,5 +1,6 @@
 using API.DTOS;
 using API.Entity;
+using API.Identity;
 using AutoMapper;
 
 namespace API.Helpers
@@ -12,12 +13,10 @@ namespace API.Helpers
      .ForMember(d => d.ProductBrand, option => option.MapFrom(s => s.ProductBrand.Name))
      .ForMember(d => d.ProductType, o => o.MapFrom(s => s.ProductType.Name))
     .ForMember(dest => dest.PhotoUrl, opt => opt.MapFrom(src => src.Photos.FirstOrDefault(x => x.IsMain).Url));
-   //  .ForMember(d => d.PhotoUrl, o => o.MapFrom<PhotoUrlResolver>());
    CreateMap<Photo, PhotoDto>();
-    CreateMap<ProductUpdateDto, Product>();
-   //   .ForMember(d => d.Url,
-   //                o => o.MapFrom<PhotoUrlResolver>());
-   // }
+   CreateMap<ProductUpdateDto, Product>();
+   CreateMap<Address, AddressDto>().ReverseMap();
+
   }
  }
 }
