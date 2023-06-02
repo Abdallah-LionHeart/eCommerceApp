@@ -68,6 +68,10 @@ namespace API.Controllers
    {
     return BadRequest("Email taken");
    }
+   if (CheckEmailExistsAsync(registerDto.Email).Result.Value)
+   {
+    return new BadRequestObjectResult(new ApiValidationErrorResponse { Errors = new[] { "Email address is in use" } });
+   }
 
    // if (await _userManager.Users.AnyAsync(x => x.UserName == registerDto.Username))
    // {

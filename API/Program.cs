@@ -1,6 +1,7 @@
 using System.Text;
 using API.Data;
 using API.Errors;
+using API.Extensions;
 using API.Helpers;
 using API.Identity;
 using API.Interfaces;
@@ -97,26 +98,28 @@ builder.Services.AddCors(opt =>
 });
 
 builder.Services.AddCors();
+builder.Services.AddSwaggerDocumentation();
 
 var app = builder.Build();
 
+app.UseMiddleware<ExceptionMiddleware>();
 app.UseStatusCodePagesWithReExecute("/errors/{0}");
 
 // Configure the HTTP request pipeline.
 
-app.UseMiddleware<ExceptionMiddleware>();
 
-if (app.Environment.IsDevelopment())
-{
- app.UseSwagger();
- app.UseSwaggerUI();
-}
+// if (app.Environment.IsDevelopment())
+// {
+//  app.UseSwagger();
+//  app.UseSwaggerUI();
+// }
 
-app.UseStaticFiles();
+app.UseSwaggerDocumentation();
+
 // app.UseCors(builder => builder.AllowAnyHeader().AllowAnyMethod()
 // .AllowCredentials().WithOrigins("https://localhost:4200"));
 // app.UseHttpsRedirection();
-// app.UseStaticFiles();
+app.UseStaticFiles();
 app.UseCors("CorsPolicy");
 
 app.UseAuthentication();

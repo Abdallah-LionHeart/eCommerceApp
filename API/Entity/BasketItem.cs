@@ -9,9 +9,6 @@ namespace API.Entity
   public string PhotoUrl { get; set; }
   public string Brand { get; set; }
   public string Type { get; set; }
-  // public int ProductId { get; set; }
-  // public string ProductUrl { get; set; }
-  // public int CustomerBasketId { get; set; }
-  // public CustomerBasket CustomerBasket { get; set; }
+
  }
 }
