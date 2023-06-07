@@ -1,44 +1,45 @@
 <section>
   <div class="container py-5" *ngIf="product">
-    <!-- <div class=""> -->
-    <div class="row justify-content-center">
-      <!-- <div class="col-md-8 col-lg-6 col-xl-4"> -->
-      <div class="card text-black">
-        <img src="{{product.photoUrl}}" alt="{{product.name}}"
-          class="card-img-top img" />
-        <div class="card-body">
-          <div class="text-center">
-            <h5 class="card-title">{{product.name}}</h5>
-            <p class="text-muted mb-4">{{product.specification}}</p>
-          </div>
-          <div>
-            <div class="d-flex justify-content-between">
-              <span>{{product.generation}}</span><span class="price">{{product.price}}$</span>
+    <mat-grid-list cols="2" rowHeight="2:1">
+      <div class="row justify-content-center">
+        <!-- <div class="col-md-8 col-lg-6 col-xl-4"> -->
+        <div class="card text-black">
+          <img src="{{product.photoUrl}}" alt="{{product.name}}"
+            class="card-img-top img" />
+          <div class="card-body">
+            <div class="text-center">
+              <h5 class="card-title">{{product.name}}</h5>
+              <p class="text-muted mb-4">{{product.specification}}</p>
             </div>
-            <div class="d-flex justify-content-between">
-              <span>{{product.storageSize}}</span><span></span>
+            <div>
+              <div class="d-flex justify-content-between">
+                <span>{{product.generation}}</span><span class="price">{{product.price}}$</span>
+              </div>
+              <div class="d-flex justify-content-between">
+                <span>{{product.storageSize}}</span><span></span>
+              </div>
+              <div class="d-flex justify-content-between">
+                <span>{{product.ramSize}}</span><span></span>
+              </div>
             </div>
-            <div class="d-flex justify-content-between">
-              <span>{{product.ramSize}}</span><span></span>
-            </div>
-          </div>
-          <div class="d-flex justify-content-center total font-weight-bold mt-4">
-            <div class="btn-group">
-              <button type="button" class="btn btn-outline" routerLink="/shop/{{product.id}}">
-                <mat-icon>view_carousel</mat-icon>
-              </button>
-              <button (click)="addItemToBasket()" class="btn btn-outline">
-                <mat-icon>add_shopping_cart</mat-icon>
+            <div class="d-flex justify-content-center total font-weight-bold mt-4">
+              <div class="btn-group">
+                <button type="button" class="btn btn-outline" routerLink="/shop/{{product.id}}">
+                  <mat-icon>view_carousel</mat-icon>
+                </button>
+                <button (click)="addItemToBasket()" class="btn btn-outline">
+                  <mat-icon>add_shopping_cart</mat-icon>
 
-              </button>
-              <button type="button" class="btn btn-outline" routerLink="/shop/edit/{{product.id}}">
-                <mat-icon>edit</mat-icon>
-              </button>
+                </button>
+                <button type="button" class="btn btn-outline" routerLink="/shop/edit/{{product.id}}">
+                  <mat-icon>edit</mat-icon>
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </mat-grid-list>
   </div>
   <!-- </div> -->
 </section>

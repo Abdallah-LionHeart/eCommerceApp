@@ -1,42 +1,100 @@
-<nav class="navbar navbar-expand-lg fixed-top" style="background-color: hwb(197 10% 55% / 0.582);">
- <div class="container">
-  <div class="navbar-brand">
-   <img src="/assets/logo/logostore.png" alt="logo" class="logo" routerLink="/">
-  </div>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-   aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-   <span class="navbar-toggler-icon"></span>
-  </button>
-  <!-- *ngIf="!isShowDivIf" --- hide and show -->
-  <div [ngClass]="!isShowDivIf ? 'responsive__active' : 'responsive__inactive'" class="collapse navbar-collapse"
-   id="navbarResponsive">
-   <ul class="navbar-nav ml-auto">
-    <li class="nav-item" routerLinkActive="active">
-     <a class="nav-link" routerLink="./home" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home
-     </a>
-    </li>
-    <li class="nav-item" routerLinkActive="active">
-     <a class="nav-link" routerLink="/shop">Shop</a>
-    </li>
-    <li class="nav-item" routerLinkActive="active">
-     <a class="nav-link" routerLink="./about">About</a>
-    </li>
-    <li class="nav-item" routerLinkActive="active">
-     <a class="nav-link" routerLink="./test-error">Error</a>
-    </li>
-    <li class="nav-item" routerLinkActive="active">
-     <a class="nav-link" routerLink="/shop/edit">Edit</a>
-    </li>
-    <li class="nav-item" routerLinkActive="active">
-     <a class="nav-link position-relative" routerLink="./basket">
-      <fa-icon [icon]="myNavCart"></fa-icon>
-      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill md-primary">
-       <span *ngIf="(basketService.basketSource$ | async) as basket">{{getBasketCount(basket.items)}}</span>
-      </span>
-     </a>
-    </li>
+<!-- <nav class="navbar navbar-expand fixed-top"> -->
+<nav class="navbar navbar-expand navbar-dark bg-dark fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand">
+      <img id="MDB-logo" src="/assets/logo/ecommerce-logo.png" alt="logo" class="logo" draggable="false" height="30" />
+    </a>
+    <ul class="navbar-nav me-1">
+      <li class="nav-item">
+        <a class="nav-link active d-flex align-items-center" aria-current="page">
+          <i class="fas fa-bars pe-2"></i>Menu</a>
+      </li>
+      <li class="nav-item ms-3">
+        <a class="nav-link d-flex align-items-center" routerLink="./home" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+          <i class="fa fa-house pe-2"></i>Home</a>
+      </li>
+    </ul>
+    <form class="d-flex align-items-center w-25 form-search">
+      <div class="input-group">
+        <input type="search" class="form-control" placeholder="Search" />
+      </div>
+      <a href="#!" class="text-white"><i class="fas fa-search ps-3"></i></a>
+    </form>
+    <ul class="navbar-nav ms-3">
+      <li class="nav-item me-3">
+        <a class="nav-link d-flex align-items-center" routerLink="/shop"><i class="fa fa-tag pe-2"></i>Shop</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link d-flex align-items-center basket-link me-3" routerLink="./basket">
+          <span class="fas fa-cart-shopping pe-2"></span> Basket
+          <span class="icon-badge" *ngIf="(basketService.basketSource$ | async) as basket">{{getBasketCount(basket.items)}}</span>
+        </a>
+      </li>
 
-   </ul>
+      <li class="nav-item me-5">
+        <a class="nav-link d-flex align-items-center" routerLink="./test-error"><i class="fa fa-circle-exclamation pe-2"></i>Error</a>
+      </li>
+    </ul>
+    <ng-container *ngIf="(accountService.currentUser$ | async) === null">
+      <ul class="navbar-nav ms-5 text-right">
+        <li class="nav-item me-2">
+          <a class="nav-link d-flex align-items-center" routerLink="/account/login"><i class="fa fa-arrow-right-to-bracket pe-2"></i>Sign In</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link d-flex align-items-center" routerLink="/account/register"><i class="fa fa-user-plus pe-2"></i>Sign Up</a>
+        </li>
+      </ul>
+    </ng-container>
+
+    <div dropdown class="btn-group buttom-drop dropstart" *ngIf="accountService.currentUser$ | async as user">
+      <button id="button-menu" dropdownToggle type="button" class="btn btn-default dropdown-toggle">
+        <img src="{{user.photoUrl || '/assets/users/user.png'}}" alt="user image" class="user-img" />
+      </button>
+      <ul *dropdownMenu id="dropdown-menu" class="dropdown-menu dropdown-menu-right unorderd-list-size" role="menu">
+        <li role="menuitem" class="list-item-size">
+          <button mat-button class="dropdown-item" routerLink="/profile">
+            <i class="fa-solid fa-user pe-2"></i>
+            <span class="ps-3">Profile</span>
+          </button>
+        </li>
+        <li role="menuitem" class="list-item-size">
+          <button mat-button class="dropdown-item" routerLink="/basket">
+            <i class="fas fa-cart-shopping pe-2"></i>
+            <span class="ps-3">Basket</span>
+          </button>
+        </li>
+        <li role="menuitem" class="list-item-size">
+          <button mat-button class="dropdown-item" routerLink="/orders">
+            <i class="fas fa-check-to-slot pe-1"></i>
+            <span class="ps-3">Orders</span>
+          </button>
+        </li>
+        <li role="menuitem" class="list-item-size">
+          <button mat-button class="dropdown-item" routerLink="/shop">
+            <i class="fa-solid fa-pen-to-square me-1"></i>
+            <span class="ms-2">Product</span>
+          </button>
+        </li>
+        <li role="menuitem" class="list-item-size">
+          <button mat-button class="menu-button" routerLink="/bookmark">
+            <i class="fa-solid fa-bookmark ms-3 me-2"></i>
+            <span class="ms-1">favorite</span>
+          </button>
+        </li>
+        <li role="menuitem" class="list-item-size">
+          <button mat-button class="dropdown-item mb-2" routerLink="/contact">
+            <i class="fa-solid fa-address-book me-2"></i>
+            <span class="ms-1">Contact</span>
+          </button>
+        </li>
+        <li class="divider dropdown-divider"></li>
+        <li role="menuitem" class="list-item-size">
+          <button mat-button class="dropdown-item mt-2" (click)="logout()">
+            <i class="fa-solid fa-right-from-bracket me-2"></i>
+            <span class="ms-1">Logout</span>
+          </button>
+        </li>
+      </ul>
+    </div>
   </div>
- </div>
 </nav>

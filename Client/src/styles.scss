@@ -34,53 +34,68 @@ $Client-theme: mat.define-light-theme((color: (primary: $Client-primary,
 html,
 body {
   height: 100%;
+  height: 100%;
 }
 
 body {
   margin: 0;
+  min-height: 100%;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-xng-breadcrumb-root {
-  padding: 8px 16px;
-  display: inline-block;
-  border-radius: 4px;
-  background-color: #219494;
-}
+// !sidenav
 
-xng-breadcrumb-separator {
-  padding: 0 4px;
-
-}
-
-xng-bredcrumb-item {
-  padding: 0 8px;
-  margin: 2px;
-  width: 30px;
-  height: 30px;
-}
-
-xng-breadcrumb-link a {
-  box-sizing: content-box;
-  max-width: 40px;
-  max-height: 20px;
-  text-decoration: none;
-}
-
-xng-breadcrumb-link a:hover {
-  color: #007bff;
-  text-decoration: underline;
-}
-
-// xng-breadcrumb-item:last-child {
-//  color: #6c757d;
+// .mat-sidenav {
+//   position: relative !important;
+//   height: 100%;
+//   overflow: auto;
+//   float: left;
 // }
 
-xng-breadcrumb-trial {
-  padding: 3px;
-  border-radius: 4px;
+// .mat-drawer-content {
+//   margin-left: 0 !important;
+// }
 
-}
+// xng-breadcrumb-root {
+//   padding: 8px 16px;
+//   display: inline-block;
+//   border-radius: 4px;
+//   background-color: #219494;
+// }
+
+// xng-breadcrumb-separator {
+//   padding: 0 4px;
+
+// }
+
+// xng-bredcrumb-item {
+//   padding: 0 8px;
+//   margin: 2px;
+//   width: 30px;
+//   height: 30px;
+// }
+
+// xng-breadcrumb-link a {
+//   box-sizing: content-box;
+//   max-width: 40px;
+//   max-height: 20px;
+//   text-decoration: none;
+// }
+
+// xng-breadcrumb-link a:hover {
+//   color: #007bff;
+//   text-decoration: underline;
+// }
+
+// // xng-breadcrumb-item:last-child {
+// //  color: #6c757d;
+// // }
+
+// xng-breadcrumb-trial {
+//   padding: 3px;
+//   border-radius: 4px;
+
+// }
 
 /* Importing Bootstrap SCSS file. */
 @import "./node_modules/bootstrap/scss/bootstrap";

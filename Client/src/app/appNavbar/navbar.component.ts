@@ -1,7 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { faCartArrowDown } from '@fortawesome/free-solid-svg-icons';
-import { BasketService } from '../appServices/basket.service';
 import { BasketItem } from '../appModels/basketItem';
+import { Product } from '../appModels/products';
+import { User } from '../appModels/user';
+import { AccountService } from '../appServices/account.service';
+import { BasketService } from '../appServices/basket.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,12 +13,16 @@ import { BasketItem } from '../appModels/basketItem';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
+  user!: User;
+  product!: Product;
+  @ViewChild('sidebar') sidebar!: ElementRef;
+  showFiller = false;
 
   myNavCart = faCartArrowDown;
   /**
    *
    */
-  constructor(public basketService: BasketService) {
+  constructor(public basketService: BasketService, public accountService: AccountService, private router: Router) {
 
 
   }
@@ -26,6 +34,11 @@ export class NavbarComponent {
 
   getBasketCount(items: BasketItem[]) {
     return items.reduce((sum, item) => sum + item.quantity, 0);
+  }
+
+  logout() {
+    this.accountService.logout();
+    this.router.navigateByUrl('/');
   }
 
 }

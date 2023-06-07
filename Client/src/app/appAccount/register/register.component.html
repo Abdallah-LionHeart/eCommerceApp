@@ -1,0 +1,50 @@
+<div class="d-flex justify-content-center mt-5 registerForm">
+ <div class="col-3">
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+   <div class="text-center mb-4">
+    <h1 class="mb-3">Sign up</h1>
+   </div>
+
+   <app-text-input [formControl]="registerForm.controls['displayName']" [label]="'Display Name'"></app-text-input>
+   <app-text-input [formControl]="registerForm.controls['email']" [label]="'Email Address'"></app-text-input>
+   <app-text-input [formControl]="registerForm.controls['password']" [label]="'Password'" [type]="changetype?'password':'text'"></app-text-input>
+   <mat-checkbox class="mt-2" color="primary" (click)="viewPass()">Show Password</mat-checkbox>
+
+
+   <ul class="text-danger list-unstyled" *ngIf="errors">
+    <li *ngFor="let error of errors">
+     {{error}}
+    </li>
+   </ul>
+
+   <div class="d-grid">
+    <button [disabled]="registerForm.invalid" class="btn btn-lg btn-primary mt-3" type="submit">Register</button>
+    <button class="btn btn-lg btn-danger mt-3 canclBtn" type="button" (click)="cancel()">Cancel</button>
+   </div>
+  </form>
+ </div>
+
+</div>
+
+
+<!-- <div class="container">
+ <h2>Login</h2>
+ <form>
+  <div class="form-group">
+   <label for="email">Email:</label>
+   <input type="email" id="email" class="form-control" required>
+  </div>
+  <div class="form-group">
+   <label for="password">Password:</label>
+   <div class="input-group">
+    <input type="password" id="password" class="form-control" [type]="passwordFieldType" required>
+    <div class="input-group-append">
+     <span class="input-group-text" (click)="togglePasswordVisibility()">
+      <i [class]="passwordVisibilityIcon"></i>
+     </span>
+    </div>
+   </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+ </form>
+</div> -->

@@ -1,15 +1,25 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { ToastrModule } from 'ngx-toastr';
+import { PhotoEditorComponent } from '../appPhoto/photo-editor/photo-editor.component';
+import { OrderTotalsComponent } from '../appShopOrder/order-totals/order-totals.component';
+import { PagerComponent } from '../appUiParts/pager/pager.component';
+import { PagingHeaderComponent } from '../appUiParts/paging-header/paging-header.component';
 
 // !ngx-bootstrap
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
+import { FileUploadModule } from 'ng2-file-upload';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 
 // !Angular Material
+import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
@@ -18,12 +28,6 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { FileUploadModule } from 'ng2-file-upload';
-import { ToastrModule } from 'ngx-toastr';
-import { PhotoEditorComponent } from '../appPhoto/photo-editor/photo-editor.component';
-import { OrderTotalsComponent } from '../appShopOrder/order-totals/order-totals.component';
-import { PagerComponent } from '../appUiParts/pager/pager.component';
-import { PagingHeaderComponent } from '../appUiParts/paging-header/paging-header.component';
 
 
 @NgModule({
@@ -40,10 +44,11 @@ import { PagingHeaderComponent } from '../appUiParts/paging-header/paging-header
     CommonModule,
     RouterModule,
     FileUploadModule,
+    ReactiveFormsModule,
     ToastrModule.forRoot(
       {
-        positionClass: 'toast-middle-center',
-        timeOut: 3000,
+        positionClass: 'toast-bottom-center',
+        timeOut: 4000,
         progressBar: true,
         progressAnimation: 'increasing',
         preventDuplicates: true,
@@ -60,6 +65,7 @@ import { PagingHeaderComponent } from '../appUiParts/paging-header/paging-header
     PaginationModule.forRoot(),
     NgxGalleryModule,
     TabsModule,
+    BsDropdownModule.forRoot(),
 
 
     // !Angular Material
@@ -73,7 +79,9 @@ import { PagingHeaderComponent } from '../appUiParts/paging-header/paging-header
     MatProgressSpinnerModule,
     MatTabsModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatGridListModule,
+    MatCheckboxModule,
   ],
 
   exports: [
@@ -82,6 +90,7 @@ import { PagingHeaderComponent } from '../appUiParts/paging-header/paging-header
     PhotoEditorComponent,
     FileUploadModule,
     OrderTotalsComponent,
+    ReactiveFormsModule,
 
 
 
@@ -89,6 +98,7 @@ import { PagingHeaderComponent } from '../appUiParts/paging-header/paging-header
     PaginationModule,
     NgxGalleryModule,
     TabsModule,
+    BsDropdownModule,
 
 
     // !Angular Material
@@ -101,7 +111,9 @@ import { PagingHeaderComponent } from '../appUiParts/paging-header/paging-header
     MatProgressSpinnerModule,
     MatTabsModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatGridListModule,
+    MatCheckboxModule,
 
 
 
