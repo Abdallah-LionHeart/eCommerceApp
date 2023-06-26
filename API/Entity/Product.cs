@@ -17,5 +17,6 @@ namespace API.Entity
   public ProductBrand ProductBrand { get; set; }
   public int ProductBrandId { get; set; }
 
+
  }
 }

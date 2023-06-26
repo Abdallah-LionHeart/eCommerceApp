@@ -12,6 +12,9 @@ namespace API.Interfaces
   Task<IReadOnlyList<T>> ListAsync(ISpecifications<T> spec);
   Task<int> CountAsync(ISpecifications<T> spec);
   void Update(Product product);
+  void Update(T entity);
+  void Add(T entity);
+  void Delete(T entity);
   Task<bool> SaveAllAsync();
 
  }

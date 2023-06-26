@@ -1,5 +1,6 @@
 using System.Text.Json;
 using API.Entity;
+using API.OrderAggregate;
 
 namespace API.Data
 {
@@ -30,6 +31,13 @@ namespace API.Data
     var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
     var products = JsonSerializer.Deserialize<List<Product>>(productsData);
     context.Products.AddRange(products);
+   }
+   if (!context.DeliveryMethods.Any())
+   {
+    var deliveryData = File.ReadAllText("Data/SeedData/delivery.json");
+    var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+    var methods = JsonSerializer.Deserialize<List<DeliveryMethod>>(deliveryData);
+    context.DeliveryMethods.AddRange(methods);
    }
 
    if (context.ChangeTracker.HasChanges()) await context.SaveChangesAsync();

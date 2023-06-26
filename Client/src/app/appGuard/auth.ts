@@ -1,6 +1,5 @@
 import { inject } from "@angular/core";
 import { ActivatedRouteSnapshot, CanActivateChildFn, CanActivateFn, Router, RouterStateSnapshot } from "@angular/router";
-import { ToastrService } from "ngx-toastr";
 import { Observable, map } from "rxjs";
 import { AccountService } from "../appServices/account.service";
 
@@ -24,7 +23,7 @@ import { AccountService } from "../appServices/account.service";
 export const AuthGuard: CanActivateFn = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> => {
 
  const accountService = inject(AccountService);
- const toastr = inject(ToastrService);
+ // const toastr = inject(ToastrService);
  const router = inject(Router);
 
  return accountService.currentUser$.pipe(

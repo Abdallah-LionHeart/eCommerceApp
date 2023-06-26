@@ -24,10 +24,7 @@ import { LoadingInterceptor } from './appInterceptors/loading.interceptor';
 import { SharedModule } from './appModule/shared.module';
 import { NavbarComponent } from './appNavbar/navbar.component';
 import { FooterComponent } from './appUiParts/footer/footer.component';
-import { NavBarComponent } from './appUiParts/nav-bar/nav-bar.component';
 import { SectionHeaderComponent } from './appUiParts/section-header/section-header.component';
-import { SidebarComponent } from './appUiParts/sidebar/sidebar.component';
-import { ToolbarComponent } from './appUiParts/toolbar/toolbar.component';
 
 
 
@@ -38,7 +35,6 @@ import { ToolbarComponent } from './appUiParts/toolbar/toolbar.component';
     NavbarComponent,
     FooterComponent,
     SectionHeaderComponent,
-    NavBarComponent,
     TestErrorComponent,
     NotFoundComponent,
     ServerErrorComponent,
@@ -46,8 +42,6 @@ import { ToolbarComponent } from './appUiParts/toolbar/toolbar.component';
     AccountComponent,
     LoginComponent,
     RegisterComponent,
-    ToolbarComponent,
-    SidebarComponent,
     TextInputComponent,
 
 
