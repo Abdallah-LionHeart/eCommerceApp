@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+
 import { TabsetComponent } from 'ngx-bootstrap/tabs';
 import { take } from 'rxjs';
 import { Photo } from 'src/app/appModels/photo';
@@ -11,12 +12,16 @@ import { BreadcrumbService } from 'xng-breadcrumb';
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
-  styleUrls: ['./product-details.component.scss']
+  styleUrls: ['./product-details.component.scss'],
+
+
 })
 export class ProductDetailsComponent implements OnInit {
   @ViewChild('productTabs', { static: true }) productTabs!: TabsetComponent;
+  products: Product[] = []
   product!: Product;
-  photos!: Photo;
+  // photos!: Photo;
+  photos!: Photo[];
   quantity = 1;
   quantityInBasket = 0;
   /**
@@ -30,6 +35,7 @@ export class ProductDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.loadProduct();
   }
+
 
   loadProduct() {
     const id = this.activatedRoute.snapshot.paramMap.get('id')

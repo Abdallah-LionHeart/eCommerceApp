@@ -21,6 +21,12 @@ namespace API.Data
    .FirstOrDefaultAsync(p => p.Id == id);
   }
 
+  public async Task<Product> GetProductByNameAsync(string name)
+  {
+   return await _context.Products.Include(p => p.Photos)
+   .SingleOrDefaultAsync(x => x.Name == name);
+  }
+
   public async Task<IReadOnlyList<Product>> GetProductsAsync()
   {
    return await _context.Products
@@ -30,6 +36,14 @@ namespace API.Data
    .ToListAsync();
   }
 
+  // public async Task<Product> GetProductByNameAsync(string name)
+  // {
+  //  return await _context.Products
+  //  .Include(p => p.ProductType)
+  //  .Include(p => p.ProductBrand)
+  //  .Include(p => p.photos)
+  //  .SingleOrDefaultAsync(p => p.Name == name);
+  // }
   public async Task<IReadOnlyList<ProductBrand>> GetProductsBrandsAsync()
   {
    return await _context.ProductBrands.ToListAsync();
@@ -41,5 +55,6 @@ namespace API.Data
    return await _context.ProductTypes.ToListAsync();
   }
  }
+
 
 }

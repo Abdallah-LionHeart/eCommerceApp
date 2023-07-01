@@ -127,7 +127,7 @@
     "ProductBrandId": 1,
     "Photos": [
       {
-        "Url": "assets/products/ASUS Zenbook Pro 14 1.jpg",
+        "Url": "assets/products/ASUSZenbookPro141.jpg",
         "IsMain": true
       }
     ]
@@ -298,7 +298,7 @@
     "ProductBrandId": 5,
     "Photos": [
       {
-        "Url": "assets/products/Hp1.jpg",
+        "Url": "assets/products/hp1.jpg",
         "IsMain": true
       }
     ]
@@ -317,7 +317,7 @@
     "ProductBrandId": 5,
     "Photos": [
       {
-        "Url": "assets/products/Hp2.jpg",
+        "Url": "assets/products/hp2.jpg",
         "IsMain": true
       }
     ]

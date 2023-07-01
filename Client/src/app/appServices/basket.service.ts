@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environments';
 import { Basket } from '../appModels/basket';
 import { BasketItem } from '../appModels/basketItem';
 import { BasketTotal } from '../appModels/basketTotal';
+import { DeliveryMethod } from '../appModels/deliveryMethod';
 import { Product } from '../appModels/products';
 
 @Injectable({
@@ -16,8 +17,20 @@ export class BasketService {
   basketSource$ = this.basketSource.asObservable();
   private basketTotalSource = new BehaviorSubject<BasketTotal | null>(null);
   basketTotalSource$ = this.basketTotalSource.asObservable();
+  shipping = 0;
 
   constructor(private http: HttpClient) { }
+
+  setShippingPrice(deliveryMethod: DeliveryMethod) {
+    this.shipping = deliveryMethod.price;
+    this.calculateTotals();
+    // const basket = this.getCurrentBasketValue();
+    // if (basket) {
+    //   basket.shippingPrice = deliveryMethod.price;
+    //   basket.deliveryMethodId = deliveryMethod.id;
+    //   this.setBasket(basket);
+    // }
+  }
 
 
   getBasket(id: string) {
@@ -140,10 +153,9 @@ export class BasketService {
   private calculateTotals() {
     const basket = this.getCurrentBasketValue();
     if (!basket) return;
-    const shipping = 0;
     const subtotal = basket?.items.reduce((a, b) => (b.price * b.quantity) + a, 0);
-    const total = shipping + subtotal;
-    this.basketTotalSource.next({ shipping, total, subtotal });
+    const total = this.shipping + subtotal;
+    this.basketTotalSource.next({ shipping: this.shipping, total, subtotal });
   }
 
   private isProduct(item: Product | BasketItem): item is Product {

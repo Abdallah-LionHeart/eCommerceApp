@@ -1,9 +1,11 @@
 <div class="container">
    <div class="row">
-      <div class="col-6">
-         <img src="{{product.photoUrl}}" alt="{{product.name}}" class="w-100"
-            style="max-width:80%;margin-left:25px;margin-top:70px">
+      <div class="col-6 my-4">
+         <app-product-slider [product]="product"></app-product-slider>
       </div>
+      <!-- <img src="{{product.photoUrl}}" alt="{{product.name}}" class="w-100"
+            style="max-width:80%;margin-left:25px;margin-top:70px"> -->
+      <!-- </div> -->
       <div class="col-6 mt-5">
          <h3>{{product.specification}}</h3>
          <p class="my-3" style="font-size:2em">{{product.price | currency}}</p>
@@ -26,9 +28,7 @@
             <!-- <button class="btn btn-outline ms-4"><i class="fa fa-heart me-2"></i><span class="button-text">Add
                   favourite</span></button> -->
          </div>
-         <div class="row mt-4">
-
-
+         <div class="row mt-4 info">
             <table class="table" style="width:70%" *ngIf="product">
                <thead>
                   <tr>
@@ -103,3 +103,5 @@
             </table>
          </div>
       </div>
+   </div>
+</div>

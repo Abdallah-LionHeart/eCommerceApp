@@ -1,6 +1,7 @@
 using API.DTOS;
 using API.Entity;
 using API.Errors;
+using API.Extensions;
 using API.Helpers;
 using API.Interfaces;
 using API.Specifications;
@@ -84,9 +85,12 @@ namespace API.Controllers
   }
 
   [HttpPost("add-photo")]
-  public async Task<ActionResult<PhotoDto>> AddPhoto(IFormFile file, int id)
+  public async Task<ActionResult<PhotoDto>> AddPhoto(IFormFile file)
   {
-   var product = await _productsRepository.GetByIdAsync(id);
+   // var user = HttpContext.User.RetrieveEmailFromPrincipal();
+   // var user = await _productsRepository.GetProductByNameAsync();
+   var product = await _productsRepository.GetByNameAsync(User.GetProductName());
+   // var product = await _productsRepository.GetByIdAsync(id);
    if (product == null) return NotFound("product not found");
 
    var result = await _photoService.AddPhotoAsync(file);
@@ -100,7 +104,7 @@ namespace API.Controllers
    product.Photos.Add(photo);
    if (await _productsRepository.SaveAllAsync())
    {
-    return CreatedAtRoute("GetProduct", new { id = product.Id }, _mapper.Map<Photo, PhotoDto>(photo));
+    return CreatedAtRoute("GetProduct", new { id = product.Id }, _mapper.Map<PhotoDto>(photo));
    }
 
    return BadRequest("Problem adding photo");

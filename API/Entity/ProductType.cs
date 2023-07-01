@@ -2,7 +2,7 @@ namespace API.Entity
 {
  public class ProductType : BaseEntity
  {
-  public string Name { get; set; }
+  public string TypeName { get; set; }
 
  }
 }

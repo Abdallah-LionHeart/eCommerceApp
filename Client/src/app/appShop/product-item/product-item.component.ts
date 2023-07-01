@@ -14,6 +14,7 @@ import { BasketService } from 'src/app/appServices/basket.service';
 })
 export class ProductItemComponent implements OnInit {
   @Input() product?: Product;
+
   faPenToSquare = faPenToSquare;
   faCartPlus = faCartPlus;
 

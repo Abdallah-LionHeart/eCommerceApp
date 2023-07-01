@@ -1,0 +1,27 @@
+<div class="mt-4 address" *ngIf="checkoutForm" [formGroup]="checkoutForm">
+ <div class="d-flex justify-content-between align-items-center">
+  <h4>Shipping Address</h4>
+  <button type="button" class="btn btn-outline-success mb-3 me-3" matTooltip="save as default address"
+   (click)="saveUserAddress()" [disabled]="!checkoutForm.get('addressForm')?.valid || !checkoutForm.get('addressForm')?.dirty">
+   Save Address
+  </button>
+ </div>
+ <div class="row" formGroupName="addressForm">
+  <div class="form-group col-6 my-4">
+   <app-text-input [label]="'First name'" formControlName="firstName"></app-text-input>
+   <app-text-input [label]="'Last name'" formControlName="lastName"></app-text-input>
+   <app-text-input [label]="'Country'" formControlName="country"></app-text-input>
+   <app-text-input [label]="'City'" formControlName="city"></app-text-input>
+   <app-text-input [label]="'Street'" formControlName="street"></app-text-input>
+   <app-text-input [label]="'Zip code'" formControlName="zipcode"></app-text-input>
+  </div>
+ </div>
+</div>
+<div class="d-flex justify-content-between flex-row mb-5">
+ <button mat-mini-fab color="primary" routerLink="/basket">
+  <mat-icon>chevron_left</mat-icon>
+ </button>
+ <button mat-mini-fab color="primary" cdkStepperNext>
+  <mat-icon>chevron_right</mat-icon>
+ </button>
+</div>

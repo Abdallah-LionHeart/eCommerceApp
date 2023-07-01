@@ -27,12 +27,12 @@ export class BasketComponent {
   //   this.basketService.decrementItemQuantity(item);
   // }
 
-  decrementItemQuantity(id: number, quantity: number) {
-    this.basketService.removeItemFromBasket(id, quantity);
-  }
+  // decrementItemQuantity(id: number, quantity: number) {
+  //   this.basketService.removeItemFromBasket(id, quantity);
+  // }
 
-  removeBasketItem(id: number, quantity: number) {
-    this.basketService.removeItemFromBasket(id, quantity);
+  removeBasketItem(event: { id: number, quantity: number }) {
+    this.basketService.removeItemFromBasket(event.id, event.quantity);
   }
 
 }

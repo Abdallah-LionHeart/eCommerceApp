@@ -5,10 +5,27 @@
 }
 
 .img {
-  object-fit: fill;
-  padding: 5px;
+  object-fit: cover;
+  padding: 1rem;
+  max-height: fit-content;
+  background-clip: padding-box;
+  background-attachment: fixed;
+  background-size: 70%;
+  image-rendering: 400px;
+  border-image-outset: 0;
+  height: 300px;
+  width: 400px;
 }
 
 .btn:hover {
   color: rgb(185, 85, 39)
+}
+
+#mydiv {
+  margin-top: 2rem;
+  // -webkit-background-clip: border-box;
+  max-width: 400px;
+  // min-width: 200px;
+  max-height: 300px;
+  // min-height: 200px;
 }
