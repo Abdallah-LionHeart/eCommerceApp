@@ -6,20 +6,16 @@ namespace API.Extensions
  {
   public static string RetrieveEmailFromPrincipal(this ClaimsPrincipal user)
   {
-   // return user?.Claims?.FirstOrDefault(x => x.Type == ClaimTypes.Email)?.Value;
-   //    return user?.Claims?.FirstOrDefault(x => x.Type == "email")?.Value;
    return user.FindFirstValue(ClaimTypes.Email);
   }
-
-  public static string GetProductId(this ClaimsPrincipal user)
+  public static string GetProductId(this ClaimsPrincipal product)
   {
-   return user.FindFirstValue("ProductId");
+   return product.FindFirstValue("ProductId");
   }
 
-  public static string GetProductName(this ClaimsPrincipal user)
+  public static string GetProductName(this ClaimsPrincipal product)
   {
-   return user.FindFirstValue("ProductName");
+   return product.FindFirstValue("ProductName");
   }
-
  }
 }

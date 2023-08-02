@@ -2,7 +2,7 @@ namespace API.Entity
 {
  public class Product : BaseEntity
  {
-  // public string Name { get; set; }
+  public string Name { get; set; }
   public string Specification { get; set; } // we must use this property as a model that contain aother property specifications
   public string Generation { get; set; }
   public decimal Price { get; set; }

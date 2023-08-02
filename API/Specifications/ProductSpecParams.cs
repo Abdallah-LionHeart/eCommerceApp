@@ -14,6 +14,7 @@ namespace API.Specifications
 
   public int? BrandId { get; set; }
   public int? TypeId { get; set; }
+  // public string Name { get; set; }
   public string Sort { get; set; }
   private string _search;
   public string Search

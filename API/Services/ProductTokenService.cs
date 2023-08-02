@@ -1,6 +1,7 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using API.Entity;
 using API.Interfaces;
 using Microsoft.IdentityModel.Tokens;
 
@@ -18,12 +19,12 @@ namespace API.Services
    _key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Token:Key"]));
   }
 
-  public string CreateToken(string productId, string productName)
+  public string CreateToken(Product product)
   {
    var claims = new List<Claim>
     {
-     new Claim("ProductId", productId),
-     new Claim("ProductName", productName),
+      new Claim("ProductId", product.Id.ToString()),
+      new Claim("ProductName", product.Name)
     };
 
    var creds = new SigningCredentials(_key, SecurityAlgorithms.HmacSha512Signature);
@@ -31,7 +32,7 @@ namespace API.Services
    var tokenDescriptor = new SecurityTokenDescriptor
    {
     Subject = new ClaimsIdentity(claims),
-    Expires = DateTime.Now.AddDays(7),
+    Expires = DateTime.Now.AddHours(1),
     SigningCredentials = creds,
     Issuer = _config["Token:Issuer"]
    };
@@ -42,5 +43,6 @@ namespace API.Services
 
    return tokenHandler.WriteToken(token);
   }
+
  }
 }

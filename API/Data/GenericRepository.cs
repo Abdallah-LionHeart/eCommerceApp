@@ -17,15 +17,10 @@ namespace API.Data
   {
    return await _context.Set<T>().FindAsync(id);
   }
-  public async Task<T> GetByNameAsync(string name)
-  {
-   return await _context.Set<T>().FirstOrDefaultAsync(i => i.Name == name);
-   // return await _context.Set<T>().FirstOrDefault(item => item.Name == name);
-  }
-
-  // public Task<T> GetByNameAsync(string name)
+  // public async Task<T> GetByNameAsync(string name)
   // {
-  //  return _context.Set<T>().FirstOrDefaultAsync(x => x.Name == name);
+  //  return await _context.Set<T>().FirstOrDefaultAsync(i => i.Name == name);
+  //  // return await _context.Set<T>().FirstOrDefault(item => item.Name == name);
   // }
 
   public async Task<IReadOnlyList<T>> ListAllAsync()
@@ -79,6 +74,7 @@ namespace API.Data
   {
    _context.Set<T>().Remove(entity);
   }
+
 
   // public Task<IReadOnlyList<T>> UpdateAsync(int id, T entity)
   // {

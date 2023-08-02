@@ -7,8 +7,7 @@ namespace API.Specifications
   public ProductsWithTypesAndBrandsSpecification(ProductSpecParams productParams) : base(x =>
    (string.IsNullOrEmpty(productParams.Search) || x.Name.ToLower().Contains(productParams.Search)) &&
    (!productParams.BrandId.HasValue || x.ProductBrandId == productParams.BrandId) &&
-   (!productParams.TypeId.HasValue || x.ProductTypeId == productParams.TypeId)
-  )
+   (!productParams.TypeId.HasValue || x.ProductTypeId == productParams.TypeId))
 
   {
    AddInclude(x => x.ProductType);
@@ -43,7 +42,7 @@ namespace API.Specifications
    AddInclude(x => x.ProductType);
    AddInclude(x => x.ProductBrand);
    AddInclude(x => x.Photos);
-   AddInclude(x => x.Name);
+   //  AddInclude(x => x.Name);
   }
  }
 }
