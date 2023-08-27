@@ -20,7 +20,6 @@ import { ShopComponent } from './shop.component';
     CommonModule,
     SharedModule,
     ShopRoutingModule,
-    SharedModule,
     // AppRoutingModule,
   ],
   exports: [

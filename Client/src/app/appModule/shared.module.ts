@@ -11,7 +11,6 @@ import { PagingHeaderComponent } from '../appUiParts/paging-header/paging-header
 
 
 // !ngx-bootstrap
-import { NgxFlickingModule } from '@egjs/ngx-flicking';
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 import { FileUploadModule } from 'ng2-file-upload';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
@@ -38,7 +37,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { BasketSummaryComponent } from '../appComponent/basket-summary/basket-summary.component';
-import { ProductSliderComponent } from '../appUiParts/product-slider/product-slider.component';
 
 
 @NgModule({
@@ -50,7 +48,7 @@ import { ProductSliderComponent } from '../appUiParts/product-slider/product-sli
     TextInputComponent,
     StepperComponent,
     BasketSummaryComponent,
-    ProductSliderComponent,
+
 
 
 
@@ -64,6 +62,7 @@ import { ProductSliderComponent } from '../appUiParts/product-slider/product-sli
     FileUploadModule,
     ReactiveFormsModule,
     CdkStepperModule,
+    // OrderModule,
     CarouselModule.forRoot(),
     ToastrModule.forRoot(
       {
@@ -85,7 +84,6 @@ import { ProductSliderComponent } from '../appUiParts/product-slider/product-sli
     PaginationModule.forRoot(),
     NgxGalleryModule,
     TabsModule,
-    NgxFlickingModule,
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
 
@@ -119,7 +117,6 @@ import { ProductSliderComponent } from '../appUiParts/product-slider/product-sli
     CdkStepperModule,
     TextInputComponent,
     BasketSummaryComponent,
-    ProductSliderComponent,
     RouterModule,
     CarouselModule,
 
@@ -131,7 +128,6 @@ import { ProductSliderComponent } from '../appUiParts/product-slider/product-sli
     TabsModule,
     BsDropdownModule,
     TooltipModule,
-    NgxFlickingModule,
 
 
     // !Angular Material

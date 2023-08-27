@@ -1,11 +1,9 @@
 <div class="container">
    <div class="row">
       <div class="col-6 my-4">
-         <app-product-slider [product]="product"></app-product-slider>
+         <img src="{{product.photoUrl}}" alt="{{product.name}}" class="w-100"
+            style="max-width:80%;margin-left:25px;margin-top:70px">
       </div>
-      <!-- <img src="{{product.photoUrl}}" alt="{{product.name}}" class="w-100"
-            style="max-width:80%;margin-left:25px;margin-top:70px"> -->
-      <!-- </div> -->
       <div class="col-6 mt-5">
          <h3>{{product.specification}}</h3>
          <p class="my-3" style="font-size:2em">{{product.price | currency}}</p>

@@ -9,7 +9,7 @@
   {
     "Id": 2,
     "ShortName": "UPS2",
-    "Description": "Get it within 5 days",
+    "Description": "Get it within five days",
     "DeliveryTime": "2-5 Days",
     "Price": 5
   },
@@ -23,7 +23,7 @@
   {
     "Id": 4,
     "ShortName": "FREE",
-    "Description": "Free! You get what you pay for",
+    "Description": "Free! within two week",
     "DeliveryTime": "1-2 Weeks",
     "Price": 0
   }

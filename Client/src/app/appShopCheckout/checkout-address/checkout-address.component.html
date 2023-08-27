@@ -1,18 +1,33 @@
 <div class="mt-4 address" *ngIf="checkoutForm" [formGroup]="checkoutForm">
  <div class="d-flex justify-content-between align-items-center">
   <h4>Shipping Address</h4>
-  <button type="button" class="btn btn-outline-success mb-3 me-3" matTooltip="save as default address"
+  <!-- <button type="button" class="btn btn-outline-success mb-3 me-3" matTooltip="save as default address"
    (click)="saveUserAddress()" [disabled]="!checkoutForm.get('addressForm')?.valid || !checkoutForm.get('addressForm')?.dirty">
+   <mat-icon>save</mat-icon>
    Save Address
+  </button> -->
+  <button mat-fab color="default" class="btn mb-3 me-3" matTooltip="save as default address"
+   (click)="saveUserAddress()" [disabled]="!checkoutForm.get('addressForm')?.valid || !checkoutForm.get('addressForm')?.dirty">
+   <mat-icon>save</mat-icon>
   </button>
  </div>
  <div class="row" formGroupName="addressForm">
-  <div class="form-group col-6 my-4">
+  <div class="form-group col-6">
    <app-text-input [label]="'First name'" formControlName="firstName"></app-text-input>
+  </div>
+  <div class="form-group col-6">
    <app-text-input [label]="'Last name'" formControlName="lastName"></app-text-input>
+  </div>
+  <div class="form-group col-6">
    <app-text-input [label]="'Country'" formControlName="country"></app-text-input>
+  </div>
+  <div class="form-group col-6">
    <app-text-input [label]="'City'" formControlName="city"></app-text-input>
+  </div>
+  <div class="form-group col-6">
    <app-text-input [label]="'Street'" formControlName="street"></app-text-input>
+  </div>
+  <div class="form-group col-6">
    <app-text-input [label]="'Zip code'" formControlName="zipcode"></app-text-input>
   </div>
  </div>
@@ -21,7 +36,7 @@
  <button mat-mini-fab color="primary" routerLink="/basket">
   <mat-icon>chevron_left</mat-icon>
  </button>
- <button mat-mini-fab color="primary" cdkStepperNext>
+ <button [disabled]="checkoutForm.get('addressForm')?.invalid" mat-mini-fab color="primary" cdkStepperNext>
   <mat-icon>chevron_right</mat-icon>
  </button>
 </div>

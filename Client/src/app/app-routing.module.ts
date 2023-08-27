@@ -14,8 +14,10 @@ const routes: Routes = [
   { path: 'shop', loadChildren: () => import('./appShop/shop/shop.module').then(mod => mod.ShopModule) },
   { path: 'basket', loadChildren: () => import('./appShopBasket/basket.module').then(mod => mod.BasketModule) },
   { path: 'checkout', loadChildren: () => import('./appShopCheckout/checkout.module').then(mod => mod.CheckoutModule), canActivate: [AuthGuard] },
-  { path: 'account', loadChildren: () => import('./appAccount/account/account.module').then(mod => mod.AccountModule) },
-  { path: '**', redirectTo: '', pathMatch: 'full' },
+  { path: 'account', loadChildren: () => import('./appAccount/account/account.module').then(mod => mod.AccountModule), data: { breadcrumb: { skip: true } } },
+  // { path: 'orders', loadChildren: () => import('./appShopOrder/orders/orders.module').then(mod => mod.OrdersModule), data: { breadcrumb: 'orders' }, canActivate: [AuthGuard] },
+  { path: 'orders', canActivate: [AuthGuard], loadChildren: () => import('./appShopOrder/orders/orders.module').then(mod => mod.OrdersModule) },
+  { path: '**', redirectTo: 'not-found', pathMatch: 'full' },
 ];
 
 @NgModule({

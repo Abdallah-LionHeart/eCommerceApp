@@ -32,6 +32,12 @@
           <span class="icon-badge" *ngIf="(basketService.basketSource$ | async) as basket">{{getBasketCount(basket.items)}}</span>
         </a>
       </li>
+      <!-- <a class="nav-link d-flex align-items-center basket-link me-3" routerLink="./basket">
+          <span class="fas fa-cart-shopping pe-2"></span> Basket
+          <span class="icon-badge" *ngIf="(basketService.basketSource$ | async) as basket">
+            <ng-container *ngIf="getBasketCount(basket.items) > 0">{{ getBasketCount(basket.items) }}</ng-container>
+          </span>
+        </a> -->
 
       <li class="nav-item me-5">
         <a class="nav-link d-flex align-items-center" routerLink="./test-error"><i class="fa fa-circle-exclamation pe-2"></i>Error</a>

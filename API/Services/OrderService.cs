@@ -60,24 +60,28 @@ namespace API.Services
    var subtotal = items.Sum(item => item.Price * item.Quantity);
 
    // check to see if order exists
-   // var spec = new OrderByPaymentIntentIdSpecification(basket.PaymentIntentId);
-   // var existingOrder = await _orderRepo.GetEntityWithSpec(spec);
-   // if (existingOrder != null)
-   // {
-   //  _orderRepo.Delete(existingOrder);
-   //  await _paymentService.CreateOrUpdatePaymentIntent(basket.PaymentIntentId);
-   // }
-
-   // create order
-   var order = new Order(items, buyerEmail, shippingAddress, deliveryMethod, subtotal);
-   _uow.Repository<Order>().Add(order);
-
+   var spec = new OrderByPaymentIntentIdSpecification(basket.PaymentIntentId);
+   var order = await _uow.Repository<Order>().GetEntityWithSpec(spec);
+   if (order != null)
+   {
+    order.ShipToAddress = shippingAddress;
+    order.DeliveryMethod = deliveryMethod;
+    order.Subtotal = subtotal;
+    _uow.Repository<Order>().Update(order);
+    // await _paymentService.CreateOrUpdatePaymentIntent(basket.PaymentIntentId);
+   }
+   else
+   {
+    // create order
+    order = new Order(items, buyerEmail, shippingAddress, deliveryMethod, subtotal, basket.PaymentIntentId);
+    _uow.Repository<Order>().Add(order);
+   }
    // save to db
    var result = await _uow.Complete();
    if (result <= 0) return null;
    // delete basket
 
-   await _basketRepository.DeleteBasketAsync(basketId);
+   // await _basketRepository.DeleteBasketAsync(basketId);
 
    // return order
    return order;

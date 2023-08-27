@@ -1,11 +1,10 @@
-<div class="mt-4 deliveryMethods" *ngIf="checkoutForm" [formGroup]="checkoutForm">
+<div class="deliveryMethods" *ngIf="checkoutForm" [formGroup]="checkoutForm">
  <div class="row" formGroupName="deliveryForm">
-  <div class="form-group col-6 ms-4 my-4" *ngFor="let method of deliveryMethods">
-   <input type="radio" class="form-check-input" value="{{method.id}}" id="{{method.id}}" formControlName="deliveryMethod"
-    (click)="setShippingPrice(method)">
-   <label for="{{method.id}}" class="form-check-label ms-2 mb-3">
+  <div class="col-6 form-group methodsOrder" *ngFor="let method of deliveryMethods">
+   <input type="radio" class="form-check-input" value="{{method.id}}" id="{{method.id}}" formControlName="deliveryMethod" (click)="setShippingPrice(method)">
+   <label for="{{method.id}}" class="form-check-label ms-4 mb-3">
     <strong>{{method.shortName}} - {{method.price | currency}}</strong>
-    <br>
+    <br />
     <span class="label-description">{{method.description}}</span>
    </label>
   </div>
@@ -15,7 +14,7 @@
  <button mat-mini-fab color="primary" cdkStepperPrevious>
   <mat-icon>chevron_left</mat-icon>
  </button>
- <button mat-mini-fab color="primary" cdkStepperNext>
+ <button [disabled]="checkoutForm?.get('deliveryForm')?.invalid" mat-mini-fab color="primary" cdkStepperNext>
   <mat-icon>chevron_right</mat-icon>
  </button>
 </div>

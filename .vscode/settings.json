@@ -1,5 +1,7 @@
 {
  "html.format.wrapAttributes": "preserve",
  "prettier.proseWrap": "never",
- "diffEditor.wordWrap": "off"
+ "diffEditor.wordWrap": "off",
+ "dotnet.defaultSolution": "eCommerceApp.sln",
+ "editor.guides.bracketPairs": true
 }

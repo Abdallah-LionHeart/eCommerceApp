@@ -7,5 +7,6 @@
  </div>
 </div>
 <div class="viewbtn">
- <button class="btn btn-outline-success">view order</button>
+ <button *ngIf="order" routerLink="/orders/{{order.id}}" class="btn btn-outline-success">View Order</button>
+ <button *ngIf="!order" routerLink="/orders" class="btn btn-outline-success">View Orders</button>
 </div>

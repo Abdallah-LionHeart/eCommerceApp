@@ -6,10 +6,10 @@ namespace API.OrderAggregate
  {
   [EnumMember(Value = "pending")]
   pending,
-  [EnumMember(Value = "PaymentReceived")]
+  [EnumMember(Value = "Payment Received")]
 
   PaymentReceived,
-  [EnumMember(Value = "PaymentFailed")]
+  [EnumMember(Value = "Payment Failed")]
 
   PaymentFailed,
   [EnumMember(Value = "Success")]
