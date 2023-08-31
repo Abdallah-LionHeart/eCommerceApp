@@ -18,3 +18,18 @@
   border: solid red 3px;
   display: inline-flex;
 }
+
+.list-group-item {
+  cursor: pointer;
+  border: none;
+  padding: 10px 20px;
+
+  &.active {
+    border-radius: 15px;
+  }
+
+  &:not(.active):hover {
+    background-color: rgb(15, 156, 375, 0.3);
+    border-radius: 15px;
+  }
+}

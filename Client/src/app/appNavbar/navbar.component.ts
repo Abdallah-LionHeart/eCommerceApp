@@ -54,8 +54,9 @@ export class NavbarComponent implements AfterViewInit {
     this.shopParams.pageNumber = 1;
     this.getProducts();
   }
+
   getProducts() {
-    this.shopService.getProducts(this.shopParams).subscribe({
+    this.shopService.getProducts().subscribe({
       next: response => {
         this.products = response.data;
         // console.log(this.products);

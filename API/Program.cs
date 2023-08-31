@@ -33,71 +33,72 @@ builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddScoped<IOrderService, OrderService>();
 builder.Services.AddScoped<IPaymentService, PaymentService>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddSingleton<IResponseCacheService, ResponseCacheService>();
 // builder.Configuration.AddEnvironmentVariables();
 
 var storeConnectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<StoreContext>(opt =>
 {
- opt.UseSqlite(storeConnectionString);
+  opt.UseSqlite(storeConnectionString);
 });
 
 var identityConnectionString = builder.Configuration.GetConnectionString("IdentityConnection");
 builder.Services.AddDbContext<AppIdentityDbContext>(opt =>
 {
- opt.UseSqlite(identityConnectionString);
+  opt.UseSqlite(identityConnectionString);
 });
 
 
 builder.Services.AddSingleton<IConnectionMultiplexer>(c =>
 {
- var options = ConfigurationOptions.Parse(builder.Configuration.GetConnectionString("Redis"));
- return ConnectionMultiplexer.Connect(options);
+  var options = ConfigurationOptions.Parse(builder.Configuration.GetConnectionString("Redis"));
+  return ConnectionMultiplexer.Connect(options);
 });
 
 builder.Services.AddIdentityCore<AppUser>(opt =>
 {
- // opt.Password.RequireNonAlphanumeric = false/* true*/;
+  // opt.Password.RequireNonAlphanumeric = false/* true*/;
 })
  .AddEntityFrameworkStores<AppIdentityDbContext>()
  .AddSignInManager<SignInManager<AppUser>>();
 
 builder.Services.Configure<ApiBehaviorOptions>(options =>
 {
- options.InvalidModelStateResponseFactory = actionContext =>
- {
-  var errors = actionContext.ModelState
-    .Where(e => e.Value.Errors.Count > 0)
-    .SelectMany(x => x.Value.Errors)
-    .Select(x => x.ErrorMessage).ToArray();
-
-  var errorResponse = new ApiValidationErrorResponse
+  options.InvalidModelStateResponseFactory = actionContext =>
   {
-   Errors = errors
+    var errors = actionContext.ModelState
+     .Where(e => e.Value.Errors.Count > 0)
+     .SelectMany(x => x.Value.Errors)
+     .Select(x => x.ErrorMessage).ToArray();
+
+    var errorResponse = new ApiValidationErrorResponse
+    {
+      Errors = errors
+    };
+    return new BadRequestObjectResult(errorResponse);
   };
-  return new BadRequestObjectResult(errorResponse);
- };
 });
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
  .AddJwtBearer(opt =>
  {
-  opt.TokenValidationParameters = new TokenValidationParameters
-  {
-   ValidateIssuerSigningKey = true,
-   IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Token:Key"])),
-   ValidIssuer = builder.Configuration["Token:Issuer"],
-   ValidateIssuer = true,
-   ValidateAudience = false
-  };
+   opt.TokenValidationParameters = new TokenValidationParameters
+   {
+     ValidateIssuerSigningKey = true,
+     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Token:Key"])),
+     ValidIssuer = builder.Configuration["Token:Issuer"],
+     ValidateIssuer = true,
+     ValidateAudience = false
+   };
  });
 builder.Services.AddAuthorization();
 
 builder.Services.AddCors(opt =>
 {
- opt.AddPolicy("CorsPolicy", policy =>
- {
-  policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200");
- });
+  opt.AddPolicy("CorsPolicy", policy =>
+  {
+    policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200");
+  });
 });
 
 builder.Services.AddCors();
@@ -138,13 +139,13 @@ var userManger = services.GetRequiredService<UserManager<AppUser>>();
 var logger = services.GetRequiredService<ILogger<Program>>();
 try
 {
- await context.Database.MigrateAsync();
- await identityContext.Database.MigrateAsync();
- await StoreContextSeed.SeedAsync(context);
- await AppIdentityDbContextSeed.SeedUsersAsync(userManger);
+  await context.Database.MigrateAsync();
+  await identityContext.Database.MigrateAsync();
+  await StoreContextSeed.SeedAsync(context);
+  await AppIdentityDbContextSeed.SeedUsersAsync(userManger);
 }
 catch (Exception ex)
 {
- logger.LogError(ex, " An Error Occured During Migration");
+  logger.LogError(ex, " An Error Occured During Migration");
 }
 app.Run();

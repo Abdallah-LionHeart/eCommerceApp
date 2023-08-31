@@ -18,7 +18,7 @@ import { BreadcrumbService } from 'xng-breadcrumb';
 })
 export class ProductDetailsComponent implements OnInit {
   @ViewChild('productTabs', { static: true }) productTabs!: TabsetComponent;
-  products: Product[] = []
+  products!: Product[];
   product!: Product;
   // photos!: Photo;
   photos!: Photo[];
@@ -40,9 +40,8 @@ export class ProductDetailsComponent implements OnInit {
   loadProduct() {
     const id = this.activatedRoute.snapshot.paramMap.get('id')
     if (id)
-      this.shopService.getProduct(+id).subscribe({
-        next: product => {
-          this.product
+      this.shopService.loadProduct(+id).subscribe({
+        next: (product: Product) => {
           this.product = product;
           this.bcService.set('@productDetails', product.name);
           this.basketService.basketSource$.pipe(take(1)).subscribe({

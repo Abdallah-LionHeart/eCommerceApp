@@ -2,7 +2,6 @@ import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { NgxGalleryAnimation, NgxGalleryImage, NgxGalleryOptions } from '@kolkov/ngx-gallery';
-import { TabsetComponent } from 'ngx-bootstrap/tabs';
 import { ToastrService } from 'ngx-toastr';
 import { take } from 'rxjs';
 import { Product } from 'src/app/appModels/products';
@@ -24,9 +23,11 @@ export class ProductEditComponent implements OnInit {
   @HostListener('window:beforeunload', ['$event']) unloadNotification($event: any) {
     $event.returnValue = true;
   }
-  product!: Product;
+  product?: Product;
+  products?: Product[];
   galleryOptions: NgxGalleryOptions[] = [];
   galleryImages: NgxGalleryImage[] = [];
+  totalCount = 0;
 
   /**
    *
@@ -39,8 +40,8 @@ export class ProductEditComponent implements OnInit {
 
   }
   ngOnInit() {
-    this.loadProduct();
     this.loadProducts();
+    this.loadProduct();
 
 
     this.galleryOptions = [
@@ -71,17 +72,29 @@ export class ProductEditComponent implements OnInit {
 
   loadProducts() {
     if (!this.product) return;
-    this.shopService.getProduct(this.product.id).subscribe({
-      next: product => this.product = product,
-      error: err => console.log(err)
+    this.shopService.getProducts().subscribe({
+      next: response => {
+        this.products = response.data;
+        this.totalCount = response.count;
+      },
+      error: error => console.log(error)
     })
   }
+  // loadProducts() {
+  //   if (!this.product) return;
+  //   this.shopService.getProduct(this.product.id).subscribe({
+  //     next: (product: Product) => {
+  //       this.product = product
+  //     }
+  //     // error: err => console.log(err)
+  //   })
+  // }
 
   loadProduct() {
     const id = this.activatedRoute.snapshot.paramMap.get('id')
     if (id)
-      this.shopService.getProduct(+id).subscribe({
-        next: product => {
+      this.shopService.loadProduct(+id).subscribe({
+        next: (product: Product) => {
           this.product = product;
           this.bcService.set('@productEdit', product.name);
           this.galleryImages = this.getImages();
