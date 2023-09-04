@@ -37,7 +37,7 @@ namespace API.Controllers
    {
     Email = user.Email,
     DisplayName = user.DisplayName,
-    Token = _tokenService.CreateToken(user),
+    Token = _tokenService.CreateToken(user).ToString(),
    };
   }
 
@@ -52,11 +52,12 @@ namespace API.Controllers
    var result = await _signInManager.CheckPasswordSignInAsync(user, loginDto.Password, false);
 
    if (!result.Succeeded) return Unauthorized(new ApiResponse(401));
+   string token = await _tokenService.CreateToken(user);
 
    return new AppUserDto
    {
     DisplayName = user.DisplayName,
-    Token = _tokenService.CreateToken(user),
+    Token = token,
     Email = user.Email,
    };
   }
@@ -64,13 +65,14 @@ namespace API.Controllers
   [HttpPost("register")]
   public async Task<ActionResult<AppUserDto>> Register(RegisterDto registerDto)
   {
-   if (await _userManager.Users.AnyAsync(x => x.Email == registerDto.Email))
-   {
-    return BadRequest("Email taken");
-   }
    if (CheckEmailExistsAsync(registerDto.Email).Result.Value)
    {
     return new BadRequestObjectResult(new ApiValidationErrorResponse { Errors = new[] { "Email address is in use" } });
+   }
+
+   if (await _userManager.Users.AnyAsync(x => x.Email == registerDto.Email))
+   {
+    return BadRequest("Email taken");
    }
 
    // if (await _userManager.Users.AnyAsync(x => x.UserName == registerDto.Username))
@@ -82,26 +84,35 @@ namespace API.Controllers
    {
     DisplayName = registerDto.DisplayName,
     Email = registerDto.Email,
-    // UserName = registerDto.Email,
+    UserName = registerDto.Email,
    };
 
    var result = await _userManager.CreateAsync(user, registerDto.Password);
 
    if (!result.Succeeded) return BadRequest(new ApiResponse(400));
 
+   var roleAddResult = await _userManager.AddToRoleAsync(user, "Memeber");
+   if (!roleAddResult.Succeeded) return BadRequest("Faild to Add To The Role");
+   string token = await _tokenService.CreateToken(user);
+
+
    return new AppUserDto
    {
     DisplayName = user.DisplayName,
-    Token = _tokenService.CreateToken(user),
+    Token = token,
     Email = user.Email,
    };
   }
+
+
   [HttpGet("emailexists")]
   public async Task<ActionResult<bool>> CheckEmailExistsAsync([FromQuery] string email)
   {
    // return await _userManager.Users.AnyAsync(x => x.Email == email);
    return await _userManager.FindByEmailAsync(email) != null;
   }
+
+
   [Authorize]
   [HttpGet("address")]
   public async Task<ActionResult<AddressDto>> GetUserAddress()
@@ -111,6 +122,8 @@ namespace API.Controllers
 
    return _mapper.Map<Address, AddressDto>(user.Address);
   }
+
+
   [Authorize]
   [HttpPut("address")]
   public async Task<ActionResult<AddressDto>> UpdateUserAddress(AddressDto address)

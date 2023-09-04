@@ -35,10 +35,19 @@ import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { CURRENCY_MASK_CONFIG, CurrencyMaskConfig, CurrencyMaskModule } from "ng2-currency-mask";
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { BasketSummaryComponent } from '../appComponent/basket-summary/basket-summary.component';
 
-
+export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
+  align: "right",
+  allowNegative: false,
+  decimal: ",",
+  precision: 2,
+  prefix: "R$ ",
+  suffix: "",
+  thousands: "."
+};
 @NgModule({
   declarations: [
     PagingHeaderComponent,
@@ -53,6 +62,7 @@ import { BasketSummaryComponent } from '../appComponent/basket-summary/basket-su
 
 
 
+
   ],
 
   imports: [
@@ -62,6 +72,8 @@ import { BasketSummaryComponent } from '../appComponent/basket-summary/basket-su
     FileUploadModule,
     ReactiveFormsModule,
     CdkStepperModule,
+    CurrencyMaskModule,
+    FormsModule,
     // OrderModule,
     CarouselModule.forRoot(),
     ToastrModule.forRoot(
@@ -119,6 +131,10 @@ import { BasketSummaryComponent } from '../appComponent/basket-summary/basket-su
     BasketSummaryComponent,
     RouterModule,
     CarouselModule,
+    CurrencyMaskModule,
+    FormsModule,
+
+
 
 
 
@@ -148,6 +164,9 @@ import { BasketSummaryComponent } from '../appComponent/basket-summary/basket-su
 
 
 
+  ],
+  providers: [
+    { provide: CURRENCY_MASK_CONFIG, useValue: CustomCurrencyMaskConfig }
   ],
 
 })

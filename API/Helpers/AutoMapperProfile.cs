@@ -16,6 +16,7 @@ namespace API.Helpers
 
       CreateMap<Photo, PhotoDto>();
       CreateMap<ProductUpdateDto, Product>();
+      CreateMap<ProductCreateDto, Product>();
       CreateMap<Identity.Address, AddressDto>().ReverseMap();
       CreateMap<CustomerBasketDto, CustomerBasket>();
       CreateMap<BasketItemDto, BasketItem>();

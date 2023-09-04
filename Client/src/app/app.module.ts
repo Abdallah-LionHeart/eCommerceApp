@@ -2,7 +2,6 @@ import { NO_ERRORS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FileUploadModule } from 'ng2-file-upload';
@@ -13,6 +12,7 @@ import { AppComponent } from './app.component';
 import { AccountComponent } from './appAccount/account/account.component';
 import { LoginComponent } from './appAccount/login/login.component';
 import { RegisterComponent } from './appAccount/register/register.component';
+import { AdminComponent } from './appAdmin/admin.component';
 import { NotFoundComponent } from './appError/not-found/not-found.component';
 import { ServerErrorComponent } from './appError/server-error/server-error.component';
 import { TestErrorComponent } from './appError/test-error/test-error.component';
@@ -41,6 +41,7 @@ import { SectionHeaderComponent } from './appUiParts/section-header/section-head
     AccountComponent,
     LoginComponent,
     RegisterComponent,
+    AdminComponent,
 
 
 
@@ -48,7 +49,7 @@ import { SectionHeaderComponent } from './appUiParts/section-header/section-head
 
   ],
   imports: [
-    FormsModule,
+    // FormsModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -68,7 +69,7 @@ import { SectionHeaderComponent } from './appUiParts/section-header/section-head
     HttpClientModule,
     NgxSpinnerModule,
 
-    FormsModule,
+    // FormsModule,
     // LoadingInterceptor,
 
 

@@ -1,6 +1,8 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { faCartArrowDown } from '@fortawesome/free-solid-svg-icons';
+import { Observable } from 'rxjs';
+import { Basket } from '../appModels/basket';
 import { BasketItem } from '../appModels/basketItem';
 import { Product } from '../appModels/products';
 import { ShopParams } from '../appModels/shopParams';
@@ -14,7 +16,7 @@ import { ShopService } from '../appServices/shop.service';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent implements AfterViewInit {
+export class NavbarComponent implements AfterViewInit, OnInit {
   @ViewChild('sidebar') sidebar!: ElementRef;
   @ViewChild('search') searchTerm!: ElementRef
   user!: User;
@@ -23,14 +25,22 @@ export class NavbarComponent implements AfterViewInit {
   products: Product[] = []
   totalCount = 0;
   showFiller = false;
-
   myNavCart = faCartArrowDown;
-  /**
-   *
-   */
+  basket$!: Observable<Basket>;
+  currentUser$!: Observable<User>;
+  isAdmin$!: Observable<boolean>;
+
+
+
+
   constructor(public basketService: BasketService, public accountService: AccountService, private router: Router, private shopService: ShopService) {
 
 
+  }
+  ngOnInit(): void {
+    // this.basket$ = this.basketService.basketSource$;
+    // this.currentUser$ = this.accountService.currentUser$;
+    this.isAdmin$ = this.accountService.isAdmin$;
   }
   ngAfterViewInit() {
 

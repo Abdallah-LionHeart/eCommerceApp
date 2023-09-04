@@ -55,12 +55,16 @@ builder.Services.AddSingleton<IConnectionMultiplexer>(c =>
   return ConnectionMultiplexer.Connect(options);
 });
 
-builder.Services.AddIdentityCore<AppUser>(opt =>
+
+builder.Services.AddIdentity<AppUser, AppRole>(opt =>
 {
+  // Configure Identity options here
   // opt.Password.RequireNonAlphanumeric = false/* true*/;
 })
  .AddEntityFrameworkStores<AppIdentityDbContext>()
- .AddSignInManager<SignInManager<AppUser>>();
+ .AddSignInManager<SignInManager<AppUser>>()
+ .AddRoleValidator<RoleValidator<AppRole>>()
+.AddRoleManager<RoleManager<AppRole>>();
 
 builder.Services.Configure<ApiBehaviorOptions>(options =>
 {
@@ -136,13 +140,14 @@ var services = scope.ServiceProvider;
 var context = services.GetRequiredService<StoreContext>();
 var identityContext = services.GetRequiredService<AppIdentityDbContext>();
 var userManger = services.GetRequiredService<UserManager<AppUser>>();
+var roleManager = services.GetRequiredService<RoleManager<AppRole>>();
 var logger = services.GetRequiredService<ILogger<Program>>();
 try
 {
   await context.Database.MigrateAsync();
   await identityContext.Database.MigrateAsync();
   await StoreContextSeed.SeedAsync(context);
-  await AppIdentityDbContextSeed.SeedUsersAsync(userManger);
+  await AppIdentityDbContextSeed.SeedUsersAsync(userManger, roleManager);
 }
 catch (Exception ex)
 {

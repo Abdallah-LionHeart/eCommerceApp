@@ -13,6 +13,8 @@ export class AccountService {
   baseUrl = environment.apiUrl;
   private currentUserSource = new ReplaySubject<User | null>(1);
   currentUser$ = this.currentUserSource.asObservable();
+  private isAdminSource = new ReplaySubject<boolean>(1);
+  isAdmin$ = this.isAdminSource.asObservable();
   // user!: User;
 
   constructor(private http: HttpClient, private router: Router) {
@@ -26,7 +28,7 @@ export class AccountService {
     return this.http.put(this.baseUrl + 'account/address', address);
   }
 
-  loadCurrentUser(token: string | null) {
+  loadCurrentUser(token: string) {
     if (token === null) {
       this.currentUserSource.next(null);
       return of(null);
@@ -34,11 +36,11 @@ export class AccountService {
     let headers = new HttpHeaders();
     headers = headers.set('Authorization', `Bearer ${token}`);
     return this.http.get<User>(this.baseUrl + 'account', { headers }).pipe(
-      map(user => {
+      map((user: User) => {
         if (user) {
           localStorage.setItem('token', user.token);
           this.currentUserSource.next(user);
-          return user;
+          this.isAdminSource.next(this.isAdmin(user.token));
           // this.user = user;
         }
         else {
@@ -48,12 +50,24 @@ export class AccountService {
     )
   }
 
+
+  isAdmin(token: string): boolean {
+    if (token) {
+      const decodedToken = JSON.parse(atob(token.split('.')[1]));
+      if (decodedToken.role.indexOf('Admin') > -1) {
+        return true
+      }
+    }
+    return false;
+  }
+
   login(values: any) {
     return this.http.post<User>(this.baseUrl + 'account/login', values).pipe(
       map(user => {
         if (user) {
           localStorage.setItem('token', user.token);
           this.currentUserSource.next(user);
+          this.isAdminSource.next(this.isAdmin(user.token));
         }
       })
     )

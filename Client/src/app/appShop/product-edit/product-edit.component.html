@@ -1,86 +1,87 @@
 <!-- @import { FormsModule } from '@angular/forms'; -->
-
-<div class="row" *ngIf="product">
-  <div class="col-4">
-    <h1>Product profile</h1>
-  </div>
-  <!-- <div class="alert alert-info pb-0" *ngIf="editForm.dirty"> -->
-  <div class="col-8">
-    <div class="alert alert-info pb-0">
-      <p><strong>Information: </strong>You have made changes. Any unsaved changes will be lost</p>
+<div class="container-fluid">
+  <div class="row" *ngIf="product">
+    <div class="col-4">
+      <h1>Product profile</h1>
     </div>
-  </div>
-  <div class="col-4">
-    <div class="card">
-      <img src="{{product.photoUrl || './assets/user.png'}}" alt="{{product.name}}"
-        class="card-img-top img-thumbnail">
-      <div class="card-body">
-        <div>
-          <strong>Specification:</strong>
-          <p>{{product.specification}}, {{product.generation}}</p>
-        </div>
-        <div>
-          <strong>Price:</strong>
-          <p>{{product.price}}</p>
-        </div>
-        <div>
-          <strong>Quantity:</strong>
-          <p>{{product.quantity}}</p>
-        </div>
-        <div>
-          <strong>product Condition:</strong>
-          <p>{{product.condition}}</p>
-        </div>
-      </div>
-      <div class="card-footer">
-        <button type="submit" class="btn btn-success col-12">Save changes</button>
-        <!-- <button type="submit" [disabled]="!editForm.dirty" form="editForm" class="btn btn-success col-12">Save changes</button> -->
+    <!-- <div class="alert alert-info pb-0" *ngIf="editForm.dirty"> -->
+    <div class="col-8">
+      <div class="alert alert-info pb-0">
+        <p><strong>Information: </strong>You have made changes. Any unsaved changes will be lost</p>
       </div>
     </div>
-
-  </div>
-
-  <div class="col-8">
-    <tabset class="product-tabset">
-      <!-- [(<button type="submit" [disabled]="!editForm.form.valid"> Save </button>)]> -->
-      <tab heading="About {{product.name}}">
-        <form (ngSubmit)="updateProduct()">
-          <!-- <form #editForm="ngForm" id="editForm" (ngSubmit)="updateProduct()"> -->
-          <h4 class="mt-2">Specification</h4>
-          <textarea class="form-control" name="specification" rows="6">
-          </textarea>
-          <!-- <textarea class="form-control" [ngModel]="product.specification" name="specification" rows="6"> -->
-          <h4 class="mt-2">Generation</h4>
-          <textarea class="form-control" name="generation" rows="6">
-          </textarea>
-          <!-- <textarea class="form-control" [(ngModel)]="product.generation" name="generation" rows="6"> -->
-          <h4 class="mt-2">Storage Size</h4>
-          <textarea class="form-control" name="storageSize" rows="6">
-          </textarea>
-          <!-- <textarea class="form-control" [(ngModel)]="product.storageSize" name="storageSize" rows="6"> -->
-          <h4 class="mt-2">Ram Size</h4>
-          <textarea class="form-control" rows="6">
-          </textarea>
-          <h4 class="mt-2">Product Status</h4>
-          <div class="d-flex flex-row align-items-center">
-            <select class="form-select mx-2">
-              <option selected>Product Condition</option>
-              <option value="new">New</option>
-              <option value="second hand">Second Hand</option>
-            </select>
-            <select class="form-select mx-2">
-              <option selected>Is Product support Touch Screen</option>
-              <option value="true">Yes</option>
-              <option value="false">No</option>
-            </select>
+    <div class="col-4">
+      <div class="card">
+        <img src="{{product.photoUrl || './assets/user.png'}}" alt="{{product.name}}"
+          class="card-img-top img-thumbnail">
+        <div class="card-body">
+          <div>
+            <strong>Specification:</strong>
+            <p>{{product.specification}}, {{product.generation}}</p>
           </div>
-        </form>
+          <div>
+            <strong>Price:</strong>
+            <p>{{product.price}}</p>
+          </div>
+          <div>
+            <strong>Quantity:</strong>
+            <p>{{product.quantity}}</p>
+          </div>
+          <div>
+            <strong>product Condition:</strong>
+            <p>{{product.condition}}</p>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button type="submit" class="btn btn-success col-12">Save changes</button>
+          <!-- <button type="submit" [disabled]="!editForm.dirty" form="editForm" class="btn btn-success col-12">Save changes</button> -->
+        </div>
+      </div>
 
-      </tab>
-      <tab heading="Edit Photos">
-        <!-- <ngx-gallery [options]="galleryOptions" [images]="galleryImages" class="ngx-gallery"></ngx-gallery> -->
-        <app-photo-editor [product]="product"></app-photo-editor>
-      </tab>
-    </tabset>
+    </div>
+
+    <div class="col-8">
+      <tabset class="product-tabset">
+        <!-- [(<button type="submit" [disabled]="!editForm.form.valid"> Save </button>)]> -->
+        <tab heading="About {{product.name}}">
+          <form (ngSubmit)="updateProduct()">
+            <!-- <form #editForm="ngForm" id="editForm" (ngSubmit)="updateProduct()"> -->
+            <h4 class="mt-2">Specification</h4>
+            <textarea class="form-control" name="specification" rows="6">
+          </textarea>
+            <!-- <textarea class="form-control" [ngModel]="product.specification" name="specification" rows="6"> -->
+            <h4 class="mt-2">Generation</h4>
+            <textarea class="form-control" name="generation" rows="6">
+          </textarea>
+            <!-- <textarea class="form-control" [(ngModel)]="product.generation" name="generation" rows="6"> -->
+            <h4 class="mt-2">Storage Size</h4>
+            <textarea class="form-control" name="storageSize" rows="6">
+          </textarea>
+            <!-- <textarea class="form-control" [(ngModel)]="product.storageSize" name="storageSize" rows="6"> -->
+            <h4 class="mt-2">Ram Size</h4>
+            <textarea class="form-control" rows="6">
+          </textarea>
+            <h4 class="mt-2">Product Status</h4>
+            <div class="d-flex flex-row align-items-center">
+              <select class="form-select mx-2">
+                <option selected>Product Condition</option>
+                <option value="new">New</option>
+                <option value="second hand">Second Hand</option>
+              </select>
+              <select class="form-select mx-2">
+                <option selected>Is Product support Touch Screen</option>
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+              </select>
+            </div>
+          </form>
+
+        </tab>
+        <tab heading="Edit Photos">
+          <!-- <ngx-gallery [options]="galleryOptions" [images]="galleryImages" class="ngx-gallery"></ngx-gallery> -->
+          <app-photo-editor [product]="product"></app-photo-editor>
+        </tab>
+      </tabset>
+    </div>
   </div>
 </div>

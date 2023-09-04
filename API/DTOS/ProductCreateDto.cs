@@ -1,12 +1,8 @@
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace API.DTOS
 {
-    public class ProductUpdateDto
+    public class ProductCreateDto
     {
         [Required]
         public string Name { get; set; }
@@ -33,6 +29,7 @@ namespace API.DTOS
         public string RamSize { get; set; }
         [Required]
         public bool TouchScreen { get; set; }
+
 
     }
 }

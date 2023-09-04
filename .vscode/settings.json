@@ -3,5 +3,6 @@
  "prettier.proseWrap": "never",
  "diffEditor.wordWrap": "off",
  "dotnet.defaultSolution": "eCommerceApp.sln",
- "editor.guides.bracketPairs": true
+ "editor.guides.bracketPairs": false,
+ "zenMode.hideLineNumbers": false
 }

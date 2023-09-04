@@ -83,6 +83,7 @@ export class ShopService {
     if (Object.keys(product).length !== 0) return of(product);
     return this.http.get<Product>(this.baseUrl + 'products/' + id);
   }
+
   loadProduct(id: number) {
     const product = this.products.find(x => x.id === id);
     return this.http.get<Product>(this.baseUrl + 'products/' + id);
@@ -103,6 +104,7 @@ export class ShopService {
       map(brands => this.brands = brands)
     );
   }
+
   getTypes() {
     if (this.types.length > 0) return of(this.types);
     return this.http.get<Type[]>(this.baseUrl + 'products/types').pipe(

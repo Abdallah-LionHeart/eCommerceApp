@@ -14,7 +14,7 @@
           <i class="fa fa-house pe-2"></i>Home</a>
       </li>
     </ul>
-    <form class="d-flex align-items-center w-25 form-search">
+    <form class="searchbar d-flex align-items-center w-25 form-search">
       <div class="input-group">
         <!-- <input type="search" class="form-control" placeholder="Search" /> -->
         <input (keyup.enter)="onSearch()" type="text" class="form-control" placeholder="Search" #search>
@@ -60,9 +60,15 @@
       </button>
       <ul *dropdownMenu id="dropdown-menu" class="dropdown-menu dropdown-menu-right unorderd-list-size" role="menu">
         <li role="menuitem" class="list-item-size">
-          <button mat-button class="dropdown-item" routerLink="/profile">
+          <button mat-button class="dropdown-item" routerLink="/account">
             <i class="fa-solid fa-user pe-2"></i>
             <span class="ps-3">Profile</span>
+          </button>
+        </li>
+        <li role="menuitem" class="list-item-size">
+          <button *ngIf="(isAdmin$|async)" mat-button class="dropdown-item" routerLink="/admin" routerLinkActive="active">
+            <mat-icon fontIcon="admin_panel_settings" style="font-size: 25px;height: 25px;width: 25px;"></mat-icon>
+            <span class="ps-3">Admin</span>
           </button>
         </li>
         <li role="menuitem" class="list-item-size">
